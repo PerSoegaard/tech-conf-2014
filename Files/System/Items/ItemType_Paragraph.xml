@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-16" standalone="yes"?>
+<items>
+  <item category="Content" name="Paragraph" systemName="Paragraph" description="" icon="" largeIcon="" includeInUrlIndex="False">
+    <fields>
+      <field name="Header" systemName="Header" description="" type="System.String, mscorlib">
+        <editor type="Dynamicweb.Content.Items.Editors.TextEditor, Dynamicweb">
+          <editorConfuguration />
+        </editor>
+      </field>
+      <field name="Level" systemName="Level" description="" type="System.String, mscorlib" defaultValueCulture="en-US" defaultValue="1">
+        <editor type="Dynamicweb.Content.Items.Editors.DropDownListEditor`1, Dynamicweb">
+          <editorConfuguration />
+        </editor>
+        <options sourceType="Static">
+          <Static>
+            <option name="First" value="1" icon="" />
+            <option name="Second" value="2" icon="" />
+          </Static>
+        </options>
+      </field>
+    </fields>
+    <rules>
+      <rule name="Allow in websites" type="Dynamicweb.Content.Items.Activation.AreaRestrictionRule, Dynamicweb" value="1" />
+      <rule name="Allowed parents" type="Dynamicweb.Content.Items.Activation.ParentRestrictionRule, Dynamicweb" value="RegularPage" />
+      <rule name="Enable item type for" type="Dynamicweb.Content.Items.Activation.StructureRestrictionRule, Dynamicweb" value="Paragraphs" />
+    </rules>
+    <layout>
+      <groups>
+        <group name="General" systemName="General" collapsibleState="None">
+          <fields>
+            <field systemName="Header" />
+            <field systemName="Level" />
+          </fields>
+        </group>
+      </groups>
+    </layout>
+  </item>
+</items>

@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-16" standalone="yes"?>
+<items>
+  <item category="People" name="Speaker" systemName="Speaker" description="" icon="/Admin/Images/Ribbon/Icons/Small/user1.png" largeIcon="/Admin/Images/Ribbon/Icons/user1.png" includeInUrlIndex="False">
+    <fields>
+      <field name="Name" systemName="Name" description="" type="System.String, mscorlib">
+        <editor type="Dynamicweb.Content.Items.Editors.TextEditor, Dynamicweb">
+          <editorConfuguration />
+        </editor>
+      </field>
+      <field name="Description" systemName="Description" description="" type="System.String, mscorlib">
+        <editor type="Dynamicweb.Content.Items.Editors.RichTextEditor, Dynamicweb">
+          <editorConfuguration><Parameters><Parameter addin="Dynamicweb.Content.Items.Editors.RichTextEditor" name="SelectConfgurationId" value="0" /></Parameters></editorConfuguration>
+        </editor>
+      </field>
+      <field name="Image" systemName="Image" description="" type="System.String, mscorlib">
+        <editor type="Dynamicweb.Content.Items.Editors.FileEditor, Dynamicweb">
+          <editorConfuguration><Parameters><Parameter addin="Dynamicweb.Content.Items.Editors.FileEditor" name="Base directory" value="/Images/speakers" /><Parameter addin="Dynamicweb.Content.Items.Editors.FileEditor" name="Extensions" value="jpg" /></Parameters></editorConfuguration>
+        </editor>
+      </field>
+      <field name="Company" systemName="Company" description="" type="System.String, mscorlib">
+        <editor type="Dynamicweb.Content.Items.Editors.TextEditor, Dynamicweb">
+          <editorConfuguration />
+        </editor>
+      </field>
+      <field name="Website url" systemName="WebsiteUrl" description="" type="System.String, mscorlib">
+        <editor type="Dynamicweb.Content.Items.Editors.TextEditor, Dynamicweb">
+          <editorConfuguration />
+        </editor>
+      </field>
+      <field name="Website title" systemName="WebsiteTitle" description="" type="System.String, mscorlib">
+        <editor type="Dynamicweb.Content.Items.Editors.TextEditor, Dynamicweb">
+          <editorConfuguration />
+        </editor>
+      </field>
+    </fields>
+    <rules>
+      <rule name="Allow in websites" type="Dynamicweb.Content.Items.Activation.AreaRestrictionRule, Dynamicweb" value="1" />
+      <rule name="Allowed parents" type="Dynamicweb.Content.Items.Activation.ParentRestrictionRule, Dynamicweb" value="RegularPage" />
+      <rule name="Enable item type for" type="Dynamicweb.Content.Items.Activation.StructureRestrictionRule, Dynamicweb" value="Pages" />
+    </rules>
+    <layout>
+      <groups>
+        <group name="General" systemName="General" collapsibleState="None">
+          <fields>
+            <field systemName="Name" />
+            <field systemName="Description" />
+            <field systemName="Image" />
+            <field systemName="Company" />
+          </fields>
+        </group>
+        <group name="Website" systemName="Website" collapsibleState="None">
+          <fields>
+            <field systemName="WebsiteUrl" />
+            <field systemName="WebsiteTitle" />
+          </fields>
+        </group>
+      </groups>
+    </layout>
+  </item>
+</items>

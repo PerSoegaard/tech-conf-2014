@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-16" standalone="yes"?>
+<items>
+  <item category="Courses" name="Course event" systemName="CourseEvent" description="" icon="/Admin/Images/Ribbon/Icons/Small/calendar.png" largeIcon="/Admin/Images/Ribbon/Icons/calendar.png" includeInUrlIndex="False">
+    <fields>
+      <field name="Date and time" systemName="DateAndTime" description="" type="System.DateTime, mscorlib">
+        <editor type="Dynamicweb.Content.Items.Editors.DateTimeEditor, Dynamicweb">
+          <editorConfuguration />
+        </editor>
+      </field>
+      <field name="Course" systemName="Course" description="" type="System.String, mscorlib">
+        <editor type="Dynamicweb.Content.Items.Editors.ItemLinkEditor, Dynamicweb">
+          <editorConfuguration />
+        </editor>
+      </field>
+    </fields>
+    <rules>
+      <rule name="Allow in websites" type="Dynamicweb.Content.Items.Activation.AreaRestrictionRule, Dynamicweb" value="*" />
+      <rule name="Allowed parents" type="Dynamicweb.Content.Items.Activation.ParentRestrictionRule, Dynamicweb" value="RegularPage" />
+      <rule name="Enable item type for" type="Dynamicweb.Content.Items.Activation.StructureRestrictionRule, Dynamicweb" value="Pages" />
+    </rules>
+    <layout>
+      <groups>
+        <group name="General" systemName="General" collapsibleState="None">
+          <fields>
+            <field systemName="DateAndTime" />
+            <field systemName="Course" />
+          </fields>
+        </group>
+      </groups>
+    </layout>
+  </item>
+</items>

@@ -1,0 +1,12 @@
+@inherits Dynamicweb.Rendering.RazorTemplateBase<Dynamicweb.Rendering.RazorTemplateModel<Dynamicweb.Rendering.Template>>
+
+<!--@MasterPageFile(master/main.cshtml)-->
+<!--@Title(Program)-->
+
+
+<section>
+    <header><h1>@GetValue("Title")</h1></header>
+<!--@Item.RenderList(ItemType: Session; ListSourceType: SelfPage; ItemFieldsList: Title,Subtitle,StartTime,EndTime,Speaker,Speaker1,Level,IsBreak,ThumbsUps,ThumbsDowns; ListTemplate: ItemPublisher/List/Schedule.cshtml; ListPageSize: 100)-->
+</section>
+
+<div class="dwcontent" id="main" title="Main content"></div>

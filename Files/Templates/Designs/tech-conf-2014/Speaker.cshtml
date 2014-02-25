@@ -1,0 +1,24 @@
+@inherits Dynamicweb.Rendering.RazorTemplateBase<Dynamicweb.Rendering.RazorTemplateModel<Dynamicweb.Rendering.Template>>
+
+<!--@MasterPageFile(master/main.cshtml)-->
+<!--@Title(Speaker)-->
+<!--@Include(razor/helpers/Helpers.cshtml)-->
+
+<article class="speaker">
+	<header>
+		<h1>@GetValue("Item.Name") <small class="company">@GetString("Item.Company")</small></h1>
+
+		@Image(GetString("Item.Image"), 0, 0, "img-rounded")
+	</header>
+
+	<div class="description">@GetValue("Item.Description")</div>
+
+	@if (!string.IsNullOrEmpty(GetString("Item.WebsiteUrl")))
+	{
+		<div class="website">
+			<a href='@GetValue("Item.WebsiteUrl")'>@(string.IsNullOrWhiteSpace(GetString("Item.WebsiteTitle")) ? GetValue("Item.WebsiteUrl") : GetValue("Item.WebsiteTitle"))</a>
+		</div>
+	}
+
+	<!--@Item.RenderList(ItemType: Session; ListSourceType: Area; ListSourceArea: 1; ItemFieldsList: Title,StartTime,EndTime,Speaker,Speaker1,Level,ThumbsUps,ThumbsDowns; ListTemplate: ItemPublisher/List/Sessions.cshtml; ListPageSize: 100; ListOrderBy: StartTime)-->
+</article>

@@ -1,0 +1,183 @@
+@mixin grid-columns($numberOfColumns: 12, $prefix: md) {
+  @for $c from 1 through $numberOfColumns {
+    $length: ($c/$numberOfColumns) * 100%;
+
+    .col-#{$prefix}-#{$c} {
+      width: $length;
+    }
+
+    // .col-#{$prefix}-pull-#{$c} {
+    //  right: $length;
+    // }
+
+    // .col-#{$prefix}-push-#{$c} {
+    //  left: $length;
+    // }
+
+    // .col-#{$prefix}-offset-#{$c} {
+    //  margin-left: $length;
+    // }
+  }
+}
+
+@for $numberOfColumns from 13 through 14 {
+    .grid-#{$numberOfColumns} {
+        .col-xs-#{$numberOfColumns}, .col-sm-#{$numberOfColumns}, .col-md-#{$numberOfColumns}, .col-lg-#{$numberOfColumns} {
+            position: relative;
+            min-height: 1px;
+            padding-left: 15px;
+            padding-right: 15px;
+        }
+
+        .col-xs-#{$numberOfColumns} {
+            float: left;
+        }
+
+        @include grid-columns($numberOfColumns, xs);
+
+        @media (min-width: 768px) {
+            @include grid-columns($numberOfColumns, sm);
+        }
+
+        @media (min-width: 992px) {
+            @include grid-columns($numberOfColumns, md);
+        }
+
+        @media (min-width: 1200px) {
+            @include grid-columns($numberOfColumns, lg);
+        }
+    }
+}
+
+$geek-image: url(../images/geek.png);
+$geek-width: 34px;
+$geek-height: 35px;
+
+@mixin level($level, $scale: 1, $position: 'bottom') {
+	padding-bottom: $geek-height*$scale;
+
+	&::after {
+		background-image: $geek-image;
+		background-size: $geek-width*$scale $geek-height*$scale;
+		display: block;
+		width: $level * $geek-width*$scale;
+		height: $geek-height*$scale;
+		content: '';
+		position: absolute;
+		#{$position}: 5px;
+		right: 5px;
+	}
+}
+
+.schedule {
+  // border: solid 1px blue;
+
+	.day {
+		padding: 0 15px;
+		border: solid 1px #eee;
+		@include border-radius();
+	}
+
+  .row {
+    & + .row {
+      border-top: none;
+    }
+
+    &:nth-child(2n) {
+      background: #eee;
+    }
+
+    @media (min-width: 768px) {
+			.time, .session {
+				float: left;
+				min-height: 1px;
+				padding-left: 15px;
+				padding-right: 15px;
+				position: relative;
+
+				padding-top: 10px;
+				padding-bottom: 10px;
+			}
+
+			.session {
+				min-height: 4em;
+				border-left: solid 1px #eee;
+
+				&.break {
+					min-height: 2em;
+				}
+			}
+
+			$time-width: 10%;
+
+			.time {
+				width: $time-width;
+			}
+
+			.session {
+				width: 100% - $time-width;
+			}
+
+			&.slots-2 .session {
+				width: (100% - $time-width)/2;
+			}
+
+			&.slots-3 .session,
+			&.slots-4 .session {
+				width: (100% - $time-width)/3;
+			}
+
+			&.slots-4 .time + .session {
+				width: (100% - $time-width);
+
+				& + .session {
+					margin-left: $time-width;
+				}
+			}
+		}
+  }
+
+	.time {
+		text-align: center;
+	}
+
+	@media (min-width: 768px) {
+		.time {
+			text-align: right;
+		}
+	}
+
+	.session {
+		text-align: center;
+
+		.title {
+			font-weight: bold;
+		}
+
+		.subtitle { display: none; }
+
+    @media (min-width: 768px) {
+			.subtitle {
+				display: block;
+			}
+		}
+
+		position: relative;
+
+		&.level-1 { @include level(1, .5); }
+		&.level-2 { @include level(2, .5); }
+		&.level-3 { @include level(3, .5); }
+	}
+
+	@media (max-width: 767px) {
+		.session {
+			border-bottom: solid 1px #eee;
+		}
+	}
+}
+
+.session {
+	&.level-1 header { @include level(1, $position: 'top'); }
+	&.level-2 header { @include level(2, $position: 'top'); }
+	&.level-3 header { @include level(3, $position: 'top'); }
+}

@@ -1,0 +1,9 @@
+@inherits Dynamicweb.Rendering.RazorTemplateBase<Dynamicweb.Rendering.RazorTemplateModel<Dynamicweb.Rendering.Template>>
+
+<article class="guestbook-entry">
+	<header>
+		@GetValue("Item.Name")
+		@GetValue("Item.Time")
+	</header>
+	@GetValue("Item.Text")
+</article>

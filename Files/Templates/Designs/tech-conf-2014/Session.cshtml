@@ -1,0 +1,42 @@
+@inherits Dynamicweb.Rendering.RazorTemplateBase<Dynamicweb.Rendering.RazorTemplateModel<Dynamicweb.Rendering.Template>>
+
+<!--@MasterPageFile(master/main.cshtml)-->
+<!--@Title(Session)-->
+@helper Rating()
+{
+	var thumbsUps = GetInteger("Item.ThumbsUps");
+	var thumbsDowns = GetInteger("Item.ThumbsDowns");
+	if (thumbsDowns > 0 || thumbsUps > 0)
+	{
+		<div class="rating">
+			+@thumbsUps / -@thumbsDowns
+		</div>
+	}
+}
+
+<article class='session level-@GetInteger("Item.Level")'>
+	<header>
+		<h1>@GetValue("Item.Title")</h1>
+
+		@if (!string.IsNullOrWhiteSpace(GetString("Item.Subtitle")))
+		{
+			<div class="subtitle">
+				@GetString("Item.Subtitle")
+			</div>
+		}
+	</header>
+
+	<div class="time">
+		@GetDate("Item.StartTime").ToString("yyyy-MM-dd HH:mm")
+	</div>
+	@if (!string.IsNullOrWhiteSpace(GetString("Item.Speaker")))
+	{
+		<div class="speaker">
+			<a href='@GetValue("Item.Speaker")'>@GetValue("Item.Speaker.Name")</a>
+		</div>
+	}
+
+	<div class="description">@GetValue("Item.Description")</div>
+
+	@Rating()
+</article>

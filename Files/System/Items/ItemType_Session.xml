@@ -1,0 +1,99 @@
+﻿<?xml version="1.0" encoding="utf-16" standalone="yes"?>
+<items>
+  <item category="program" name="Session" systemName="Session" description="" icon="/Admin/Images/Ribbon/Icons/Small/clock.png" largeIcon="/Admin/Images/Ribbon/Icons/clock.png" includeInUrlIndex="False">
+    <fields>
+      <field name="Title" systemName="Title" description="" type="System.String, mscorlib" defaultValueExpression="@Page(MenuText)" defaultValueCulture="en-US" defaultValue="">
+        <editor type="Dynamicweb.Content.Items.Editors.TextEditor, Dynamicweb">
+          <editorConfuguration />
+        </editor>
+        <validators>
+          <validator type="Dynamicweb.Content.Items.Editors.RequiredValidator, Dynamicweb" errorMessage="" />
+        </validators>
+      </field>
+      <field name="Subtitle" systemName="Subtitle" description="" type="System.String, mscorlib">
+        <editor type="Dynamicweb.Content.Items.Editors.TextEditor, Dynamicweb">
+          <editorConfuguration />
+        </editor>
+      </field>
+      <field name="Start time" systemName="StartTime" description="" type="System.DateTime, mscorlib">
+        <editor type="Dynamicweb.Content.Items.Editors.DateTimeEditor, Dynamicweb">
+          <editorConfuguration />
+        </editor>
+      </field>
+      <field name="End time" systemName="EndTime" description="" type="System.DateTime, mscorlib">
+        <editor type="Dynamicweb.Content.Items.Editors.DateTimeEditor, Dynamicweb">
+          <editorConfuguration />
+        </editor>
+      </field>
+      <field name="Level" systemName="Level" description="" type="System.String, mscorlib" defaultValueCulture="en-US" defaultValue="1">
+        <editor type="Dynamicweb.Content.Items.Editors.RadioButtonListEditor`1, Dynamicweb">
+          <editorConfuguration><Parameters><Parameter addin="Dynamicweb.Content.Items.Editors.RadioButtonListEditor`1[[System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]" name="LabelPosition" value="0" /><Parameter addin="Dynamicweb.Content.Items.Editors.RadioButtonListEditor`1[[System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]" name="IconPosition" value="0" /><Parameter addin="Dynamicweb.Content.Items.Editors.RadioButtonListEditor`1[[System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]" name="IconMaxWidth" value="0" /><Parameter addin="Dynamicweb.Content.Items.Editors.RadioButtonListEditor`1[[System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]" name="IconMaxHeight" value="0" /></Parameters></editorConfuguration>
+        </editor>
+        <options sourceType="Static">
+          <Static>
+            <option name="*" value="1" icon="" />
+            <option name="**" value="2" icon="" />
+            <option name="***" value="3" icon="" />
+          </Static>
+        </options>
+      </field>
+      <field name="Speaker" systemName="Speaker" description="" type="System.String, mscorlib">
+        <editor type="Dynamicweb.Content.Items.Editors.ItemLinkEditor, Dynamicweb">
+          <editorConfuguration />
+        </editor>
+      </field>
+      <field name="Speaker" systemName="Speaker1" description="" type="System.String, mscorlib">
+        <editor type="Dynamicweb.Content.Items.Editors.ItemLinkEditor, Dynamicweb">
+          <editorConfuguration />
+        </editor>
+      </field>
+      <field name="Description" systemName="Description" description="" type="System.String, mscorlib">
+        <editor type="Dynamicweb.Content.Items.Editors.RichTextEditor, Dynamicweb">
+          <editorConfuguration><Parameters><Parameter addin="Dynamicweb.Content.Items.Editors.RichTextEditor" name="SelectConfgurationId" value="0" /></Parameters></editorConfuguration>
+        </editor>
+      </field>
+      <field name="Is break?" systemName="IsBreak" description="" type="System.Boolean, mscorlib" defaultValueCulture="en-US" defaultValue="False">
+        <editor type="Dynamicweb.Content.Items.Editors.CheckboxEditor, Dynamicweb">
+          <editorConfuguration />
+        </editor>
+      </field>
+      <field name="ThumbsUps" systemName="ThumbsUps" description="" type="System.Int32, mscorlib" defaultValueCulture="en-US" defaultValue="0">
+        <editor type="Dynamicweb.Content.Items.Editors.IntegerEditor, Dynamicweb">
+          <editorConfuguration />
+        </editor>
+      </field>
+      <field name="ThumbsDowns" systemName="ThumbsDowns" description="" type="System.Int32, mscorlib" defaultValueCulture="en-US" defaultValue="0">
+        <editor type="Dynamicweb.Content.Items.Editors.IntegerEditor, Dynamicweb">
+          <editorConfuguration />
+        </editor>
+      </field>
+    </fields>
+    <rules>
+      <rule name="Allow in websites" type="Dynamicweb.Content.Items.Activation.AreaRestrictionRule, Dynamicweb" value="1" />
+      <rule name="Enable item type for" type="Dynamicweb.Content.Items.Activation.StructureRestrictionRule, Dynamicweb" value="Pages" />
+    </rules>
+    <layout>
+      <groups>
+        <group name="General" systemName="General" collapsibleState="None">
+          <fields>
+            <field systemName="Title" />
+            <field systemName="Subtitle" />
+            <field systemName="StartTime" />
+            <field systemName="EndTime" />
+            <field systemName="Level" />
+            <field systemName="Speaker" />
+            <field systemName="Speaker1" />
+            <field systemName="Description" />
+            <field systemName="IsBreak" />
+          </fields>
+        </group>
+        <group name="Rating" systemName="Rating" collapsibleState="None">
+          <fields>
+            <field systemName="ThumbsUps" />
+            <field systemName="ThumbsDowns" />
+          </fields>
+        </group>
+      </groups>
+    </layout>
+  </item>
+</items>

@@ -1,0 +1,14 @@
+﻿@functions {
+    string GetImageUrl(string url, int width = 200, int height = 200)
+    {
+        if (string.IsNullOrWhiteSpace(url))
+        {
+            url = string.Format("http://placehold.it/{0}x{1}", width, height);
+        }
+        if (!url.StartsWith("http://"))
+        {
+            url = string.Format("/Admin/Public/GetImage.ashx?Image={0}&width={1}&height={2}", url, width, height);
+        }
+        return url;
+    }
+}

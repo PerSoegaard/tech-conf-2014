@@ -1,0 +1,79 @@
+﻿@inherits Dynamicweb.Rendering.RazorTemplateBase<Dynamicweb.Rendering.RazorTemplateModel<Dynamicweb.Rendering.Template>>
+
+<!DOCTYPE html>
+
+@{
+	var area = new
+	{
+		Name = Pageview.Area.get_Value("AreaName"),
+		FirstPageID = Pageview.Area.get_Value("AreaFirstPage")
+	};
+}
+
+<html>
+<head>
+	<title>Bootstrap</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css" />
+	@GetValue("Stylesheets")
+	@if (!string.IsNullOrWhiteSpace(GetString("Item.Area.CustomCSSUrl")))
+	{
+		<link rel="stylesheet" href='@GetValue("Item.Area.CustomCSSUrl")' />
+	}
+	<!--@Snippet(StyleSheet)-->
+	@GetValue("Javascripts")
+	<!--@Snippet(JavaScript)-->
+</head>
+<body>
+	<div class="navbar navbar-default" role="navigation">
+		<div class="container">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+					<span class="sr-only"><!--@Translate(Toggle_navigation, "Toggle navigation")--></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="/Default.aspx?ID=@area.FirstPageID">@area.Name</a>
+			</div>
+			<div class="collapse navbar-collapse">
+				<ul class="dwnavigation nav navbar-nav" id="navbar" data-settings="template:navbar.xslt;endlevel:1;expandmode:all">
+					<li class="active"><a href="#">Home</a></li>
+					<li><a href="#about">About</a></li>
+					<li><a href="#contact">Contact</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+
+	@*
+		<div id="userinfo">
+			@if (Pageview.User.UserID > 0)
+			{
+				<text>Welcome, @Pageview.User.UserName
+				<a class="small radius button" href="/Admin/Public/ExtranetLogoff.aspx">[Sign out]</a>
+				</text>
+			}
+			else
+			{
+				<form method="post">
+					<div>
+						<input name="username" value="test" size="3" />
+						<input name="password" value="test" size="3" />
+						<button type="submit" class="small radius button">Sign in</button>
+					</div>
+				</form>
+			}
+		</div>
+	*@
+
+	<div class="container">
+		<!--@ContentPlaceholder-->
+	</div>
+
+	<script src="https://code.jquery.com/jquery.js"></script>
+	<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
+	<!--@Snippet(JavaScriptBottom)-->
+</body>
+</html>

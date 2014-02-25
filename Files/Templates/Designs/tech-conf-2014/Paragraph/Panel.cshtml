@@ -1,0 +1,44 @@
+﻿@inherits Dynamicweb.Rendering.RazorTemplateBase<Dynamicweb.Rendering.RazorTemplateModel<Dynamicweb.Rendering.Template>>
+
+@{
+	var type = GetString("Item.Type");
+	switch (type)
+	{
+		case "featured":
+			type = "primary";
+			break;
+		case "highlight":
+			type = "success";
+			break;
+		default:
+			type = "default";
+			break;
+	}
+}
+
+@functions {
+	private object GetValue(string key, object defaultValue)
+	{
+		return string.IsNullOrWhiteSpace(GetString(key)) ? defaultValue : GetValue(key);
+	}
+}
+
+<div class="col-md-6">
+	<section class="panel panel-@type">
+		<div class="panel-heading">
+			<div class="panel-title">
+				@GetValue("Item.Title")
+			</div>
+		</div>
+
+		<div class="panel-body">
+			<div class="text">@GetValue("Item.Text")</div>
+		</div>
+
+		@if (!string.IsNullOrWhiteSpace(GetString("Item.DetailsUrl"))) { 
+		<div class="panel-footer">
+			<a href='@GetValue("Item.DetailsUrl")'>@GetValue("Item.DetailsText", "Read more")</a>
+		</div>
+		}
+	</section>
+</div>

@@ -1,0 +1,141 @@
+<!--@SnippetStart(stylesheet)-->
+<link rel="stylesheet" href="@GetValue("Template:BaseUrl")/Schedule.css" />
+<!--@SnippetEnd(stylesheet)-->
+@inherits Dynamicweb.Rendering.RazorTemplateBase<Dynamicweb.Rendering.RazorTemplateModel<Dynamicweb.Rendering.Template>>
+
+@functions {
+	class Session
+	{
+		public DateTime StartTime { get; set; }
+		public TimeSpan Duration { get; set; }
+		public string Title { get; set; }
+		public string Speaker { get; set; }
+	}
+
+	class Day : Dictionary<DateTime, List<Session>> { }
+
+	private List<dynamic> GetSpeakers(LoopItem item)
+	{
+		var speakers = new List<dynamic>();
+		for (var i = 0; i < 3; i++)
+		{
+			var key = string.Format("ItemPublisher:Item.Speaker{0}", i > 0 ? i.ToString() : "");
+			var url = item.GetString(key);
+			if (!string.IsNullOrWhiteSpace(url))
+			{
+				speakers.Add(new
+				{
+					Name = item.GetString(string.Format("{0}.Name", key)),
+					Url = url
+				});
+			}
+		}
+		return speakers;
+	}
+}
+
+@helper RenderSpeakers(List<dynamic> speakers)
+{
+	if (speakers.Count > 1)
+	{
+		<div class="speakers">
+			@foreach (var speaker in speakers)
+			{
+				<div class="speaker"><a href="@speaker.Url">@speaker.Name</a></div>
+			}
+		</div>
+	}
+	else
+	{
+		foreach (var speaker in speakers)
+		{
+			<div class="speaker"><a href="@speaker.Url">@speaker.Name</a></div>
+		}
+	}
+}
+@{
+
+	var sessions = new List<dynamic>();
+	foreach (var item in GetLoop("ItemPublisher:Items.List"))
+	{
+		sessions.Add(new
+		{
+			Title = item.GetString("ItemPublisher:Item.Title"),
+			Subtitle = item.GetString("ItemPublisher:Item.Subtitle"),
+			IsBreak = item.GetBoolean("ItemPublisher:Item.IsBreak"),
+			StartTime = item.GetDate("ItemPublisher:Item.StartTime"),
+			Url = item.GetValue("ItemPublisher:Item.Url"),
+			Speakers = GetSpeakers(item),
+			EditUrl = item.GetBoolean("ItemPublisher:Item.CanEdit") ? item.GetString("ItemPublisher:Item.EditUrl") : null,
+			Item = item
+		});
+	}
+
+	var days = new SortedDictionary<DateTime, SortedDictionary<DateTime, List<dynamic>>>();
+	foreach (var session in sessions)
+	{
+		if (!days.ContainsKey(session.StartTime.Date))
+		{
+			days[session.StartTime.Date] = new SortedDictionary<DateTime, List<dynamic>>();
+		}
+		var day = days[session.StartTime.Date];
+		if (!day.ContainsKey(session.StartTime))
+		{
+			day[session.StartTime] = new List<dynamic>();
+		}
+		day[session.StartTime].Add(session);
+	}
+
+}
+
+<div class="schedule">
+	@foreach (var day in days)
+	{
+		<section class="day">
+			@*<header><h1>@day.Key.ToString("yyyy-MM-dd")</h1></header>*@
+			@foreach (var slot in day.Value)
+			{
+				<div class="row slots-@slot.Value.Count">
+					<div class="time">@slot.Key.ToString("H:mm")</div>
+					@foreach (var session in slot.Value)
+					{
+						<div class='session @(session.IsBreak ? " break" : "level-"+@session.Item.GetInteger("ItemPublisher:Item.Level"))'>
+
+							<div class="title">
+								@if (session.IsBreak)
+								{
+									@session.Title
+								}
+								else
+								{
+									<a href="@session.Url">@session.Title</a>
+								}
+							</div>
+
+							@if (!string.IsNullOrWhiteSpace(session.Subtitle))
+							{
+								
+								
+								<div class="subtitle">@session.Subtitle</div>
+							}
+
+							@RenderSpeakers(session.Speakers)
+							@if (!string.IsNullOrWhiteSpace(session.EditUrl))
+							{
+								<div>
+									<a href="@session.EditUrl">edit</a>
+								</div>
+							}
+						</div>
+					}
+				</div>
+			}
+		</section>
+	}
+</div>
+
+@*
+	@foreach (var item in GetLoop("ItemPublisher:Items.List")) {
+	  <pre>@string.Join("\n", item.Values)</pre>
+	}
+*@

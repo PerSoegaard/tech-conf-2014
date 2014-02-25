@@ -1,0 +1,14 @@
+@inherits Dynamicweb.Rendering.RazorTemplateBase<Dynamicweb.Rendering.RazorTemplateModel<Dynamicweb.Rendering.Template>>
+
+<!--@MasterPageFile(master/main.cshtml)-->
+<!--@Title(Course)-->
+
+<section class="course">
+	<header>
+		<h1>@GetValue("Item.Title")</h1>
+	</header>
+
+	<div class="events">
+		<!--@Item.RenderList(ItemType: CourseEvent; ListSourceType: Area; ListSourceArea: 1; ItemFieldsList: DateAndTime; ListTemplate: ItemPublisher/List/CourseEvent.cshtml; ListPageSize: 100; ListOrderBy: DateAndTime)-->
+	</div>
+</section>

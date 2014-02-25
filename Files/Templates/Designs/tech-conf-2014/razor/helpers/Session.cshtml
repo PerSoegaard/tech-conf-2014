@@ -1,0 +1,8 @@
+﻿@helper RenderLevel(int level)
+{
+	if (level < 1)
+	{
+		level = 1;
+	}
+	<div class="level">@level</div>
+}

@@ -1,0 +1,150 @@
+@inherits Dynamicweb.Rendering.RazorTemplateBase<Dynamicweb.Rendering.RazorTemplateModel<Dynamicweb.Rendering.Template>>
+
+@functions {
+	public object Translate(string key, string defaultValue) { return defaultValue; }
+}
+
+<div class="user-management create-profile">
+	<h1>@Translate("Create_profile", "Create profile")</h1>
+
+	@{ var validationErrors = GetLoop("FormValidationErrors"); }
+
+	@if (validationErrors.Count > 0)
+	{
+		<div class="alert alert-danger">
+			<ul class="validation-errors">
+				@foreach (var error in validationErrors)
+				{
+					<li>Error in the input field "@error.GetValue("UserManagement:User.FormValidationError.FieldNiceName")": <a href="javascript:document.getElementById('<!--@UserManagement:User.FormValidationError.FieldName-->').focus();">@error.GetValue("UserManagement:User.FormValidationError.Message")</a></li>
+				}
+			</ul>
+		</div>
+	}
+
+	<div id="create-profile-form" class="form-horizontal" role="form">
+		@GetValue("UserManagement:User.FormStart")
+		<div class="form-group">
+			<label class="col-sm-2 control-label">@Translate("Name", "Name")</label>
+			<div class="col-sm-10">@GetValue("UserManagement:User.Name.Input")</div>
+		</div>
+		<div class="form-group">
+			<label class="col-sm-2 control-label">@Translate("Email", "Email")</label>
+			<div class="col-sm-10">@GetValue("UserManagement:User.Email.Input")</div>
+		</div>
+		<div class="form-group">
+			<label class="col-sm-2 control-label">@Translate("Username", "Username")</label>
+			<div class="col-sm-10">@GetValue("UserManagement:User.UserName.Input")</div>
+		</div>
+		<div class="form-group">
+			<label class="col-sm-2 control-label">@Translate("newpassword", "New password")</label>
+			<div class="col-sm-10">@GetValue("UserManagement:User.NewPassword.Input")</div>
+		</div>
+		<div class="form-group">
+			<label class="col-sm-2 control-label">@Translate("confirmpassword", "Confirm password")</label>
+			<div class="col-sm-10">@GetValue("UserManagement:User.NewPasswordConfirm.Input")</div>
+		</div>
+		<div class="form-group">
+			<label class="col-sm-2 control-label">
+				@Translate("Department", "Department")
+			</label>
+			<div class="col-sm-10">@GetValue("UserManagement:User.Department.Input")</div>
+		</div>
+		<div class="form-group">
+			<label class="col-sm-2 control-label">
+				@Translate("Phone", "Phone")
+			</label>
+			<div class="col-sm-10">@GetValue("UserManagement:User.Phone.Input")</div>
+		</div>
+		<div class="form-group">
+			<label class="col-sm-2 control-label">
+				@Translate("PhonePrivate", "Private phone")
+			</label>
+			<div class="col-sm-10">@GetValue("UserManagement:User.PhonePrivate.Input")</div>
+		</div>
+		<div class="form-group">
+			<label class="col-sm-2 control-label">
+				@Translate("PhoneBusiness", "Business phone")
+			</label>
+			<div class="col-sm-10">@GetValue("UserManagement:User.PhoneBusiness.Input")</div>
+		</div>
+		<div class="form-group">
+			<label class="col-sm-2 control-label">
+				@Translate("PhoneMobile", "Mobile phone")
+			</label>
+			<div class="col-sm-10">@GetValue("UserManagement:User.PhoneMobile.Input")</div>
+		</div>
+		<div class="form-group">
+			<label class="col-sm-2 control-label">
+				@Translate("Fax", "Fax")
+			</label>
+			<div class="col-sm-10">@GetValue("UserManagement:User.Fax.Input")</div>
+		</div>
+		<div class="form-group">
+			<label class="col-sm-2 control-label">
+				@Translate("Address", "Address")
+			</label>
+			<div class="col-sm-10">@GetValue("UserManagement:User.Address.Input")</div>
+		</div>
+		<div class="form-group">
+			<label class="col-sm-2 control-label">
+				@Translate("Address2", "Address 2")
+			</label>
+			<div class="col-sm-10">@GetValue("UserManagement:User.Address2.Input")</div>
+		</div>
+		<div class="form-group">
+			<label class="col-sm-2 control-label">
+				@Translate("Zip", "Zip")
+			</label>
+			<div class="col-sm-10">@GetValue("UserManagement:User.Zip.Input")</div>
+		</div>
+		<div class="form-group">
+			<label class="col-sm-2 control-label">
+				@Translate("City", "City")
+			</label>
+			<div class="col-sm-10">@GetValue("UserManagement:User.City.Input")</div>
+		</div>
+		<div class="form-group">
+			<label class="col-sm-2 control-label">
+				@Translate("Country", "Country")
+			</label>
+			<div class="col-sm-10">@GetValue("UserManagement:User.Country.Input")</div>
+		</div>
+		<div class="form-group">
+			<label class="col-sm-2 control-label">@Translate("profilepicture", "Profile picture")</label>
+			<div class="col-sm-10">@GetValue("UserManagement:User.Image.Uploader")</div>
+		</div>
+
+		@{ var selectableGroups = GetLoop("SelectableGroups"); }
+		@if (selectableGroups.Count > 0)
+		{
+			<div class="form-group">
+				<label class="col-sm-2 control-label">@Translate("memberof", "Member of")</label>
+				<div class="col-sm-10">
+					@foreach (var group in selectableGroups)
+					{
+						<label>
+							@group.GetValue("UserManagement:User.SelectableGroup.Input")
+							@group.GetValue("UserManagement:User.SelectableGroup.Name")
+						</label>
+					}
+				</div>
+			</div>
+		}
+
+		<div class="form-group">
+			<div class="col-sm-offset-2 col-sm-10">
+				<button type="submit" class="btn" btn-default" id="submitter">@Translate("createnewuser", "Create new user")</button>
+			</div>
+		</div>
+
+		@GetValue("UserManagement:User.FormEnd")
+	</div>
+	<!--@SnippetStart(JavaScriptBottom)-->
+	<script>
+(function ($) {
+	$('#create-profile-form input[type="text"], #create-profile-form input[type="password"]').addClass('form-control')
+
+}(jQuery))</script>
+	<!--@SnippetEnd(JavaScriptBottom)-->
+
+</div>

@@ -1,0 +1,15 @@
+﻿@helper Image(string url, int width = 200, int height = 200, string classNames = null)
+{
+	if (width <= 0) { width = 200; }
+	if (height <= 0) { height = 200; }
+	
+	if (string.IsNullOrWhiteSpace(url))
+	{
+		url = string.Format("http://placehold.it/{0}x{1}", width, height);
+	}
+	if (!url.StartsWith("http://"))
+	{
+		url = string.Format("/Admin/Public/GetImage.ashx?Image={0}&width={1}&height={2}", url, width, height);
+	}
+	@: @string.Format("<"+"img sr"+"c='{0}' width='{1}' "+(string.IsNullOrEmpty(classNames) ? "" : " class='"+classNames+"'")+"height='{2}'/>", url, width, height)
+}

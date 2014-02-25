@@ -1,0 +1,44 @@
+<link rel="stylesheet" href="/Files/Templates/ItemPublisher/ItemPublisher.css" />
+<script type="text/javascript" src="/Admin/Content/JsLib/prototype-1.6.1.js"></script>
+<script type="text/javascript" src="/Files/Templates/ItemPublisher/Edit/edit.js"></script>
+
+<div class="items">
+	<div class="item-edit-form">
+		<form method="post">
+			<input type="hidden" name="Continue" value="/Default.aspx?ID=><!--@ItemPublisher:Global.PageId-->&PID=<!--@ItemPublisher:Global.ParagraphId-->" />
+			<div class="item-edit-fields-outer">
+				@GetValue("ItemPublisher:Edit.Form")
+			</div>
+
+			@foreach (var name in _LoopNames) { <pre>@name</pre>}
+
+			@{
+				var validationErrors = GetLoop("ValidationErrors");
+			}
+			@if (validationErrors.Count > 0)
+			{
+				<div class="validation-error">
+					<!--@Translate(ItemPublisher:Edit.SaveError, "Item not saved!")-->
+					<ul>
+						@foreach (var error in validationErrors)
+						{
+							<li>@error.GetValue("ItemPublisher:Edit.Validation.FieldName"): @error.GetValue("ItemPublisher:Edit.Validation.Error")</li>
+						}
+					</ul>
+				</div>
+			}
+
+			<div class="item-edit-submission">
+				<button onclick="alert(-1)"><!--@Translate(ItemPublisher:Edit.Cancel, "Cancel")--></button>
+				<button type="submit"><!--@Translate(ItemPublisher:Edit.Save, "Save changes")--></button>
+			</div>
+
+		</form>
+	</div>
+</div>
+
+<script type="text/javascript">
+	$(document).observe('dom:loaded', function () {
+		Dynamicweb.Items.ItemPublishing.get_current().initialize();
+	});
+</script>

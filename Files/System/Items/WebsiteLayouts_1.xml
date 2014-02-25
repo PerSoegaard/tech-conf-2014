@@ -1,0 +1,16 @@
+﻿<WebsiteItemLayouts>
+  <PageItemLayouts>
+    <ItemLayout systemname="Course" template="Course.cshtml" />
+    <ItemLayout systemname="CourseEvent" template="CourseEvent.cshtml" />
+    <ItemLayout systemname="Guestbook" template="Guestbook.cshtml" />
+    <ItemLayout systemname="GuestbookEntry" template="" />
+    <ItemLayout systemname="Program" template="Program.cshtml" />
+    <ItemLayout systemname="Session" template="Session.cshtml" />
+    <ItemLayout systemname="Speaker" template="Speaker.cshtml" />
+  </PageItemLayouts>
+  <ParagraphItemLayouts>
+    <ItemLayout systemname="GuestbookEntry" template="Guestbook_entry.cshtml" />
+    <ItemLayout systemname="Panel" template="Panel.cshtml" />
+    <ItemLayout systemname="Paragraph" template="Paragraph.cshtml" />
+  </ParagraphItemLayouts>
+</WebsiteItemLayouts>

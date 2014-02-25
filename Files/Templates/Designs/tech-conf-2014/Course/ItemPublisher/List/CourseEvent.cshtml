@@ -1,0 +1,15 @@
+@inherits Dynamicweb.Rendering.RazorTemplateBase<Dynamicweb.Rendering.RazorTemplateModel<Dynamicweb.Rendering.Template>>
+
+<div class="list-event">
+	@foreach (var evt in GetLoop("ItemPublisher:Items.List"))
+	{
+		<div class="row">
+			<div class="event">
+				<a href='@evt.GetValue("ItemPublisher:Item.Url")'>
+					@evt.GetValue("ItemPublisher:Item.DateAndTime")
+				</a>
+			</div>
+		</div>
+	}
+</div>
+

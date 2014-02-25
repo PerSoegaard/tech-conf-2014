@@ -1,0 +1,50 @@
+@import 'compass';
+@import 'schedule';
+
+.speakers {
+	.speaker {
+		display: inline-block;
+		// float: left;
+
+		+ .speaker::before {
+			content: ' & ';
+		}
+	}
+}
+
+.speaker {
+ 	.sessions {
+ 		header {
+			h1 {
+				font-size: 36px * (30/36);
+			}
+		}
+
+		ol {
+			list-style: none;
+			margin-left: 0;
+			padding-left: 0;
+		}
+
+		.session {
+			.starttime {
+				float: left;
+				margin-right: 2em;
+			}
+		}
+ 	}
+}
+
+.guestbook-entry {
+	margin: 1em 0;
+}
+
+.list-speaker {
+	.speaker {
+		text-align: center;
+
+		.name {
+			margin: 0 0 2em;
+		}
+	}
+}

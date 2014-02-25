@@ -1,0 +1,26 @@
+﻿@inherits Dynamicweb.Rendering.RazorTemplateBase<Dynamicweb.Rendering.RazorTemplateModel<Dynamicweb.Rendering.Template>>
+
+<!--@Include(/Files/Templates/Designs/tech-conf-2014/razor/helpers/Session.cshtml)-->
+@{
+		// @hack: Get only sessions connected to this speaker
+		var url = System.Web.HttpContext.Current.Request.Url.PathAndQuery;
+		var items = GetLoop("ItemPublisher:Items.List").Where(item => !string.IsNullOrWhiteSpace(item.GetString("ItemPublisher:Item.Speaker")) && url.Contains(item.GetString("ItemPublisher:Item.Speaker")));
+}
+
+@if (items.Count() > 0) {
+	<section class="sessions">
+		<header>
+			<h1>Sessions</h1>
+		</header>
+
+		<ol>
+		@foreach (var item in items)
+		{
+			<li class='session level-@item.GetInteger("ItemPublisher:Item.Level")'>
+				<div class="starttime">@item.GetDate("ItemPublisher:Item.StartTime").ToString("yyyy-MM-dd HH:mm")</div>
+				<div class="title"><a href="@item.GetValue("ItemPublisher:Item.Url")">@item.GetValue("ItemPublisher:Item.Title")</a></div>
+			</li>
+		}
+			</ol>
+	</section>
+}

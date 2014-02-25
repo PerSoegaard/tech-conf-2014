@@ -1,0 +1,10 @@
+@inherits Dynamicweb.Rendering.RazorTemplateBase<Dynamicweb.Rendering.RazorTemplateModel<Dynamicweb.Rendering.Template>>
+
+<div class="paragraph">
+	@if (!string.IsNullOrWhiteSpace(GetString("ParagraphText"))) {
+		<div class="text">@GetString("ParagraphText")</div>
+	}
+	@if (!string.IsNullOrWhiteSpace(GetString("ParagraphModule"))) {
+		<div class="module">@GetString("ParagraphModule")</div>
+	}
+</div>

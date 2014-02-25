@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-16" standalone="yes"?>
+<items>
+  <item category="Content" name="Panel" systemName="Panel" description="" icon="" largeIcon="" includeInUrlIndex="False">
+    <fields>
+      <field name="Title" systemName="Title" description="" type="System.String, mscorlib">
+        <editor type="Dynamicweb.Content.Items.Editors.TextEditor, Dynamicweb">
+          <editorConfuguration />
+        </editor>
+      </field>
+      <field name="Subtitle" systemName="Subtitle" description="" type="System.String, mscorlib">
+        <editor type="Dynamicweb.Content.Items.Editors.TextEditor, Dynamicweb">
+          <editorConfuguration />
+        </editor>
+      </field>
+      <field name="Text" systemName="Text" description="" type="System.String, mscorlib">
+        <editor type="Dynamicweb.Content.Items.Editors.LongTextEditor, Dynamicweb">
+          <editorConfuguration><Parameters><Parameter addin="Dynamicweb.Content.Items.Editors.LongTextEditor" name="Rows" value="" /><Parameter addin="Dynamicweb.Content.Items.Editors.LongTextEditor" name="Cols" value="" /></Parameters></editorConfuguration>
+        </editor>
+      </field>
+      <field name="Details url" systemName="DetailsUrl" description="" type="System.String, mscorlib">
+        <editor type="Dynamicweb.Content.Items.Editors.LinkEditor, Dynamicweb">
+          <editorConfuguration><Parameters><Parameter addin="Dynamicweb.Content.Items.Editors.LinkEditor" name="SelectOnlyID" value="False" /></Parameters></editorConfuguration>
+        </editor>
+      </field>
+      <field name="Details text" systemName="DetailsText" description="" type="System.String, mscorlib">
+        <editor type="Dynamicweb.Content.Items.Editors.TextEditor, Dynamicweb">
+          <editorConfuguration />
+        </editor>
+      </field>
+      <field name="Type" systemName="Type" description="" type="System.String, mscorlib">
+        <editor type="Dynamicweb.Content.Items.Editors.DropDownListEditor`1, Dynamicweb">
+          <editorConfuguration />
+        </editor>
+        <options sourceType="Static">
+          <Static>
+            <option name="Highlight" value="highlight" icon="" />
+            <option name="Featured" value="featured" icon="" />
+            <option name="Important" value="important" icon="" />
+          </Static>
+        </options>
+      </field>
+    </fields>
+    <rules>
+      <rule name="Allow in websites" type="Dynamicweb.Content.Items.Activation.AreaRestrictionRule, Dynamicweb" value="*" />
+      <rule name="Enable item type for" type="Dynamicweb.Content.Items.Activation.StructureRestrictionRule, Dynamicweb" value="Paragraphs" />
+    </rules>
+    <layout>
+      <groups>
+        <group name="General" systemName="General" collapsibleState="None">
+          <fields>
+            <field systemName="Title" />
+            <field systemName="Subtitle" />
+            <field systemName="Text" />
+            <field systemName="DetailsUrl" />
+            <field systemName="DetailsText" />
+            <field systemName="Type" />
+          </fields>
+        </group>
+      </groups>
+    </layout>
+  </item>
+</items>
