@@ -662,41 +662,62 @@
   right: 5px;
 }
 
-/* line 5, ../sass/tech-conf-2014.scss */
+/* line 1, ../sass/_guestbook.scss */
+.guestbook-entry {
+  margin: 1em 0;
+  border: solid 1px #eee;
+  padding: 1em;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  border-radius: 5px;
+}
+/* line 8, ../sass/_guestbook.scss */
+.guestbook-entry header * {
+  vertical-align: middle;
+  margin-right: 1em;
+}
+/* line 18, ../sass/_guestbook.scss */
+.guestbook-entry .message {
+  padding-top: 1em;
+}
+
+/* line 6, ../sass/tech-conf-2014.scss */
 .speakers .speaker {
   display: inline-block;
 }
-/* line 9, ../sass/tech-conf-2014.scss */
+/* line 10, ../sass/tech-conf-2014.scss */
 .speakers .speaker + .speaker::before {
   content: ' & ';
 }
 
-/* line 18, ../sass/tech-conf-2014.scss */
+/* line 19, ../sass/tech-conf-2014.scss */
 .speaker .sessions header h1 {
   font-size: 30px;
 }
-/* line 23, ../sass/tech-conf-2014.scss */
+/* line 24, ../sass/tech-conf-2014.scss */
 .speaker .sessions ol {
   list-style: none;
   margin-left: 0;
   padding-left: 0;
 }
-/* line 30, ../sass/tech-conf-2014.scss */
+/* line 31, ../sass/tech-conf-2014.scss */
 .speaker .sessions .session .starttime {
   float: left;
   margin-right: 2em;
 }
 
-/* line 38, ../sass/tech-conf-2014.scss */
-.guestbook-entry {
-  margin: 1em 0;
-}
-
-/* line 43, ../sass/tech-conf-2014.scss */
+/* line 40, ../sass/tech-conf-2014.scss */
 .list-speaker .speaker {
   text-align: center;
 }
-/* line 46, ../sass/tech-conf-2014.scss */
+/* line 43, ../sass/tech-conf-2014.scss */
 .list-speaker .speaker .name {
   margin: 0 0 2em;
+}
+
+/* line 49, ../sass/tech-conf-2014.scss */
+.buttons {
+  text-align: right;
 }

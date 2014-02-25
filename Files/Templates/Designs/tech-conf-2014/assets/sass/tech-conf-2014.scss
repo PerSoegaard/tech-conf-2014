@@ -1,5 +1,6 @@
 @import 'compass';
 @import 'schedule';
+@import 'guestbook';
 
 .speakers {
 	.speaker {
@@ -35,10 +36,6 @@
  	}
 }
 
-.guestbook-entry {
-	margin: 1em 0;
-}
-
 .list-speaker {
 	.speaker {
 		text-align: center;
@@ -47,4 +44,8 @@
 			margin: 0 0 2em;
 		}
 	}
+}
+
+.buttons {
+	text-align: right;
 }

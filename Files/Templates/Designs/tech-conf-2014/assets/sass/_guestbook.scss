@@ -1,0 +1,21 @@
+.guestbook-entry {
+	margin: 1em 0;
+	border: solid 1px #eee;
+	padding: 1em;
+	@include border-radius();
+
+	header {
+		* {
+			vertical-align: middle;
+			margin-right: 1em;
+		}
+
+		// .time::before {
+		// 	content: ' / ';
+		// }
+	}
+
+	.message {
+		padding-top: 1em;
+	}
+}
