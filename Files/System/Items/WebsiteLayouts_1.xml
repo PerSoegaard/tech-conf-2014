@@ -3,7 +3,8 @@
     <ItemLayout systemname="Course" template="Course.cshtml" />
     <ItemLayout systemname="CourseEvent" template="CourseEvent.cshtml" />
     <ItemLayout systemname="Guestbook" template="Guestbook.cshtml" />
-    <ItemLayout systemname="Page" template="" />
+    <ItemLayout systemname="Page" template="Page.cshtml" />
+    <ItemLayout systemname="Person" template="" />
     <ItemLayout systemname="Presentation" template="Presentation.cshtml" />
     <ItemLayout systemname="Program" template="Program.cshtml" />
     <ItemLayout systemname="Session" template="Session.cshtml" />
