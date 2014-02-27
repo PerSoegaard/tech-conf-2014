@@ -1,0 +1,22 @@
+truncate table ItemType_Course
+truncate table ItemType_CourseEvent
+truncate table ItemType_Feed
+truncate table ItemType_GuessANumber
+truncate table ItemType_Guestbook
+truncate table ItemType_GuestbookEntry
+truncate table ItemType_Page
+truncate table ItemType_PageProperties
+truncate table ItemType_Panel
+truncate table ItemType_PanelGroup
+truncate table ItemType_Paragraph
+truncate table ItemType_Person
+truncate table ItemType_Presentation
+truncate table ItemType_Program
+truncate table ItemType_Session
+truncate table ItemType_Slide
+truncate table ItemType_Speaker
+truncate table ItemType_WebsiteProperties
+truncate table ItemTypeId
+
+delete from Paragraph
+delete from Page
