@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-16" standalone="yes"?>
+<items>
+  <item category="Content" name="Panel group" systemName="PanelGroup" description="" icon="" largeIcon="" includeInUrlIndex="False">
+    <fields>
+      <field name="Panels" systemName="Panels" description="" type="System.Collections.Generic.IEnumerable`1[[System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]], mscorlib">
+        <editor type="Dynamicweb.Content.Items.Editors.ItemListEditor, Dynamicweb">
+          <editorConfuguration><Parameters><Parameter addin="Dynamicweb.Content.Items.Editors.ItemListEditor" name="Item type" value="Panel" /></Parameters></editorConfuguration>
+        </editor>
+        <options sourceType="Static">
+          <Static>
+            <option name="Title" value="Title" icon="" />
+            <option name="Subtitle" value="Subtitle" icon="" />
+            <option name="Text" value="Text" icon="" />
+            <option name="Read more url" value="ReadMoreUrl" icon="" />
+            <option name="Read more text" value="ReadMoreText" icon="" />
+            <option name="Disabled" value="Disabled" icon="" />
+            <option name="Type" value="Type" icon="" />
+          </Static>
+        </options>
+      </field>
+      <field name="Shuffle" systemName="Shuffle" description="" type="System.String, mscorlib" defaultValueCulture="en-US" defaultValue="no">
+        <editor type="Dynamicweb.Content.Items.Editors.RadioButtonListEditor`1, Dynamicweb">
+          <editorConfuguration><Parameters><Parameter addin="Dynamicweb.Content.Items.Editors.RadioButtonListEditor`1[[System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]" name="LabelPosition" value="0" /><Parameter addin="Dynamicweb.Content.Items.Editors.RadioButtonListEditor`1[[System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]" name="IconPosition" value="0" /><Parameter addin="Dynamicweb.Content.Items.Editors.RadioButtonListEditor`1[[System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]" name="IconMaxWidth" value="0" /><Parameter addin="Dynamicweb.Content.Items.Editors.RadioButtonListEditor`1[[System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]" name="IconMaxHeight" value="0" /></Parameters></editorConfuguration>
+        </editor>
+        <options sourceType="Static">
+          <Static>
+            <option name="Yes" value="yes" icon="" />
+            <option name="No" value="no" icon="" />
+            <option name="Maybe" value="maybe" icon="" />
+          </Static>
+        </options>
+      </field>
+    </fields>
+    <rules>
+      <rule name="Allow in websites" type="Dynamicweb.Content.Items.Activation.AreaRestrictionRule, Dynamicweb" value="*" />
+      <rule name="Enable item type for" type="Dynamicweb.Content.Items.Activation.StructureRestrictionRule, Dynamicweb" value="Paragraphs" />
+    </rules>
+    <layout>
+      <groups>
+        <group name="General" systemName="General" collapsibleState="None">
+          <fields>
+            <field systemName="Panels" />
+            <field systemName="Shuffle" />
+          </fields>
+        </group>
+      </groups>
+    </layout>
+  </item>
+</items>

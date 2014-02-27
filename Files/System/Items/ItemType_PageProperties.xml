@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-16" standalone="yes"?>
+<items>
+  <item category="" name="Page properties" systemName="PageProperties" description="" icon="" largeIcon="" includeInUrlIndex="False">
+    <fields>
+      <field name="Sidebar before content" systemName="SidebarBeforeContent" description="" type="System.Boolean, mscorlib" defaultValueCulture="en-US" defaultValue="False">
+        <editor type="Dynamicweb.Content.Items.Editors.CheckboxEditor, Dynamicweb">
+          <editorConfuguration />
+        </editor>
+      </field>
+    </fields>
+    <rules>
+      <rule name="Allow in websites" type="Dynamicweb.Content.Items.Activation.AreaRestrictionRule, Dynamicweb" value="*" />
+      <rule name="Enable item type for" type="Dynamicweb.Content.Items.Activation.StructureRestrictionRule, Dynamicweb" value="Websites" />
+    </rules>
+    <layout>
+      <groups>
+        <group name="General" systemName="General" collapsibleState="None">
+          <fields>
+            <field systemName="SidebarBeforeContent" />
+          </fields>
+        </group>
+      </groups>
+    </layout>
+  </item>
+</items>

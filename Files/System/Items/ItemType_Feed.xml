@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-16" standalone="yes"?>
+<items>
+  <item category="" name="Feed" systemName="Feed" description="Insert a feed from somewhere" icon="/Admin/Images/Ribbon/Icons/Small/download.png" largeIcon="/Admin/Images/Ribbon/Icons/download.png" includeInUrlIndex="False">
+    <fields>
+      <field name="Title" systemName="Title" description="" type="System.String, mscorlib">
+        <editor type="Dynamicweb.Content.Items.Editors.InputHTML5Editor, Dynamicweb">
+          <editorConfuguration><Parameters><Parameter addin="Dynamicweb.Content.Items.Editors.InputHTML5Editor" name="Type" value="text" /><Parameter addin="Dynamicweb.Content.Items.Editors.InputHTML5Editor" name="Pattern" value="" /><Parameter addin="Dynamicweb.Content.Items.Editors.InputHTML5Editor" name="Placeholder" value="" /><Parameter addin="Dynamicweb.Content.Items.Editors.InputHTML5Editor" name="Size" value="" /><Parameter addin="Dynamicweb.Content.Items.Editors.InputHTML5Editor" name="Min" value="" /><Parameter addin="Dynamicweb.Content.Items.Editors.InputHTML5Editor" name="Max" value="" /><Parameter addin="Dynamicweb.Content.Items.Editors.InputHTML5Editor" name="Step" value="" /><Parameter addin="Dynamicweb.Content.Items.Editors.InputHTML5Editor" name="Autocomplete" value="False" /><Parameter addin="Dynamicweb.Content.Items.Editors.InputHTML5Editor" name="Required" value="False" /></Parameters></editorConfuguration>
+        </editor>
+      </field>
+      <field name="Url" systemName="Url" description="" type="System.String, mscorlib">
+        <editor type="Dynamicweb.Content.Items.Editors.LinkEditor, Dynamicweb">
+          <editorConfuguration><Parameters><Parameter addin="Dynamicweb.Content.Items.Editors.LinkEditor" name="SelectOnlyID" value="False" /></Parameters></editorConfuguration>
+        </editor>
+        <validators>
+          <validator type="Dynamicweb.Content.Items.Editors.RequiredValidator, Dynamicweb" errorMessage="" />
+        </validators>
+      </field>
+      <field name="Limit" systemName="Limit" description="Maximum number of items" type="System.String, mscorlib">
+        <editor type="Dynamicweb.Content.Items.Editors.InputHTML5Editor, Dynamicweb">
+          <editorConfuguration><Parameters><Parameter addin="Dynamicweb.Content.Items.Editors.InputHTML5Editor" name="Type" value="number" /><Parameter addin="Dynamicweb.Content.Items.Editors.InputHTML5Editor" name="Pattern" value="" /><Parameter addin="Dynamicweb.Content.Items.Editors.InputHTML5Editor" name="Placeholder" value="" /><Parameter addin="Dynamicweb.Content.Items.Editors.InputHTML5Editor" name="Size" value="" /><Parameter addin="Dynamicweb.Content.Items.Editors.InputHTML5Editor" name="Min" value="0" /><Parameter addin="Dynamicweb.Content.Items.Editors.InputHTML5Editor" name="Max" value="50" /><Parameter addin="Dynamicweb.Content.Items.Editors.InputHTML5Editor" name="Step" value="" /><Parameter addin="Dynamicweb.Content.Items.Editors.InputHTML5Editor" name="Autocomplete" value="False" /><Parameter addin="Dynamicweb.Content.Items.Editors.InputHTML5Editor" name="Required" value="False" /></Parameters></editorConfuguration>
+        </editor>
+      </field>
+    </fields>
+    <rules>
+      <rule name="Allow in websites" type="Dynamicweb.Content.Items.Activation.AreaRestrictionRule, Dynamicweb" value="*" />
+      <rule name="Enable item type for" type="Dynamicweb.Content.Items.Activation.StructureRestrictionRule, Dynamicweb" value="Paragraphs" />
+    </rules>
+    <layout>
+      <groups>
+        <group name="General" systemName="General" collapsibleState="None">
+          <fields>
+            <field systemName="Title" />
+            <field systemName="Url" />
+            <field systemName="Limit" />
+          </fields>
+        </group>
+      </groups>
+    </layout>
+  </item>
+</items>
