@@ -2,7 +2,7 @@
 
 <!--@Include(/Files/Templates/Designs/tech-conf-2014/razor/helpers/Helpers.cshtml)-->
 @{
-    var speakers = GetLoop("ItemPublisher:Items.List");
+	var speakers = GetLoop("ItemPublisher:Items.List");
 }
 
 @helper Speaker(Dynamicweb.Content.Items.ItemEntry speaker)
@@ -13,19 +13,19 @@
 <div class="list-speaker">
 	<div class="row">
 		@foreach (var speaker in speakers)
-    {
-		<div class="col-md-4 col-sm-6">
-			<div class="speaker">
-				<a href='@speaker.GetValue("ItemPublisher:Item.Url")'>
-					<div class="image">
-						@Image(speaker.GetString("ItemPublisher:Item.Image"), 0, 0, "img-circle")
-					</div>
-					<div class="name">
-						@speaker.GetValue("ItemPublisher:Item.Name")
-					</div>
-				</a>
+		{
+			<div class="col-md-4 col-sm-6">
+				<div class="speaker">
+					<a href='@speaker.GetValue("ItemPublisher:Item.Url")'>
+						<div class="image">
+							@Image(speaker.GetString("ItemPublisher:Item.Image"), 0, 0, "img-circle")
+						</div>
+						<div class="name">
+							@speaker.GetValue("ItemPublisher:Item.Name")
+						</div>
+					</a>
+				</div>
 			</div>
-		</div>
-    }
+		}
 	</div>
 </div>

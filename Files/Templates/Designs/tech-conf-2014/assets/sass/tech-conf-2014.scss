@@ -82,3 +82,13 @@
 		max-width: 100%;
 	}
 }
+
+.people {
+	.header {
+		font-weight: bold;
+	}
+
+	.person:nth-child(2n) {
+		background: #eee;
+	}
+}

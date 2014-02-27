@@ -753,3 +753,12 @@
 .paragraph .paragraph-image img {
   max-width: 100%;
 }
+
+/* line 87, ../sass/tech-conf-2014.scss */
+.people .header {
+  font-weight: bold;
+}
+/* line 91, ../sass/tech-conf-2014.scss */
+.people .person:nth-child(2n) {
+  background: #eee;
+}

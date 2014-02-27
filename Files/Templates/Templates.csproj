@@ -156,6 +156,15 @@
   <ItemGroup>
     <Content Include="Designs\tech-conf-2014\Paragraph\GuessANumber.cshtml" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="Designs\tech-conf-2014\ItemPublisher\List\People.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Designs\tech-conf-2014\ItemPublisher\Details\Person.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Designs\tech-conf-2014\ItemPublisher\Edit\Person.cshtml" />
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

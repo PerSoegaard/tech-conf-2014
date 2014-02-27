@@ -3,6 +3,11 @@
 <!--@MasterPageFile(master/main.cshtml)-->
 <!--@Title(Guestbook)-->
 
+<div class="jumbotron">
+	<h1>@GetValue("Item.Title")</h1>
+	<p>@GetValue("Item.Description")</p>
+</div>
+
 <div class="dwcontent" id="main" title="Main content"></div>
 
 <div class="dwcontent" id="entries" title="Entries"></div>

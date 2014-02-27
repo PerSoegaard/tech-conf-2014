@@ -1,8 +1,10 @@
 @inherits Dynamicweb.Rendering.RazorTemplateBase<Dynamicweb.Rendering.RazorTemplateModel<Dynamicweb.Rendering.Template>>
 
+<!--@Include(/Files/Templates/Designs/tech-conf-2014/razor/helpers/Social.cshtml)-->
+
 <article class="guestbook-entry">
 	<header>
-		@Gravatar() <span class="name">@GetValue("Item.Name")</span><span class="time">@GetDate("Item.Time").ToString("yyyy-MM-hh HH:mm")</span>
+		@Gravatar(GetString("Item.Email")) <span class="name">@GetValue("Item.Name")</span><span class="time">@GetDate("Item.Time").ToString("yyyy-MM-hh HH:mm")</span>
 	</header>
 
 	<div class="message">
