@@ -19,6 +19,8 @@ obj/
 bin/
 packages/
 packages.config
+*.suo
+*.user
 
 #############
 ## Dynamicweb
