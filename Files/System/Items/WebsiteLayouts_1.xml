@@ -12,6 +12,7 @@
   </PageItemLayouts>
   <ParagraphItemLayouts>
     <ItemLayout systemname="Feed" template="Feed.cshtml" />
+    <ItemLayout systemname="GuessANumber" template="GuessANumber.cshtml" />
     <ItemLayout systemname="GuestbookEntry" template="Guestbook_entry.cshtml" />
     <ItemLayout systemname="Panel" template="Panel.cshtml" />
     <ItemLayout systemname="PanelGroup" template="PanelGroup.cshtml" />
