@@ -3,6 +3,10 @@
 <!--@MasterPageFile(master/no-sidebar.cshtml)-->
 <!--@Title(Frontpage)-->
 
+@if (!string.IsNullOrWhiteSpace(GetString("DwContent(header)"))) {
+<div class="dwcontent" id="header" title="Header"></div>
+}
+
 <div class="dwcontent row" id="featured" title="Featured content"></div>
 
-<div class="dwcontent row" id="main" title="Main content"></div>
+<div class="dwcontent" id="main" title="Main content"></div>

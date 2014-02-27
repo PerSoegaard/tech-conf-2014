@@ -1,0 +1,126 @@
+﻿@{
+	var comments = GetLoop("Comments");
+	var pageUrl = System.Web.HttpContext.Current.Request.RawUrl;
+}
+
+<div id="comments" class="comments">
+	<legend><!--@Translate(Comments, "Comments")--></legend>
+	@if (comments.Count > 0)
+	{
+		foreach (var comment in comments)
+		{
+			<article class="comment" id='comment-@comment.GetValue("ID")'>
+				<header>
+					@Gravatar(comment.GetString("Email"))
+					<span class="author-name">
+						@if (!string.IsNullOrEmpty(comment.GetString("Website")))
+						{
+							<a href='@comment.GetValue("Website")'>@comment.GetValue("Name")</a>
+						}
+						else
+						{
+							@comment.GetValue("Name")
+						}
+					</span>
+					<span class="publication-time">
+						<span class="date">@comment.GetDate("CreatedDate").ToString("yyyy-MM-dd HH:mm")</span>
+					</span>
+					<span class="link">
+						<a href='@pageUrl#comment-@comment.GetValue("ID")'>link</a>
+					</span>
+				</header>
+
+				<blockquote>@comment.GetValue("Text")</blockquote>
+			</article>
+		}
+	}
+
+
+	<div class="panel panel-default" id="leavecomment">
+		<div class="panel-heading">
+			<div class="panel-title">
+				<!--@Translate(Leave_a_comment, "Leave a comment")-->
+			</div>
+		</div>
+		<div class="panel-body">
+			<form class="form-horizontal" method="post" action="/Admin/Public/404.aspx" id="commentform">
+				<div style="display: none">
+					<input type="hidden" name="Comment.Command" id="Comment-Command" value="create" />
+					<input type="hidden" name="Comment.ItemType" value="page" />
+					<input type="hidden" name="Comment.ItemID" value="@Pageview.ID" />
+				</div>
+
+				<div id="Comment-Name" class="form-group">
+					<label class="control-label col-sm-2" for="Comment-Name-field">Name</label>
+					<div class="col-sm-10">
+						<input id="Comment-Name-field" name="Comment.Name" class="form-control" type="text" placeholder="Name" value="@Pageview.User.UserName" />
+					</div>
+				</div>
+
+				<div id="Comment-Email" class="form-group">
+					<label class="control-label col-sm-2" for="Comment-Email-field">E-mail address</label>
+					<div class="col-sm-10">
+						<input type="text" id="Comment-Email-field" name="Comment.Email" class="form-control" placeholder="E-mail address" value="@Pageview.User.Email" />
+						<span class="help-block">(Will not be published)</span>
+					</div>
+				</div>
+
+				@*
+				<div id="Comment-Website" class="form-group">
+					<label class="control-label col-sm-2" for="Comment-Name-field">Website</label>
+					<div class="col-sm-10">
+						<input type="text" id="Comment-Website-field" name="Comment.Website" class="form-control" placeholder="Website" value="" />
+					</div>
+				</div>
+				*@
+
+				<div id="Comment-Text" class="form-group">
+					<label class="control-label col-sm-2" for="Comment-Text-field">Comment</label>
+					<div class="col-sm-10">
+						<textarea id="Comment-Text-field" name="Comment.Text" class="form-control" rows="4" placeholder="Comment"></textarea>
+					</div>
+				</div>
+
+				<div id="commentform-errors" class="alert alert-danger" style="display: none">
+					Please fill in the marked fields and try again.
+				</div>
+
+				<div class="buttons">
+					<button class="btn btn-primary" type="submit"><!--@Translate(Leave_comment, "Leave comment")--> <span class="glyphicon glyphicon-send"></span></button>
+				</div>
+			</form>
+		</div>
+	</div>
+
+<!--@SnippetStart(JavaScriptBottom)-->
+<script>
+	/*<![CDATA[*/(function ($, undefined) {
+		$(document).ready(function () {
+			$('#commentform').on('submit', function (event) {
+				var numberOfErrors = 0;
+
+				$.each(['Name', 'Email', 'Text'], function (index, key) {
+					var value = $.trim($('#Comment-' + key + '-field').val());
+
+					$('#Comment-' + key).removeClass('has-error');
+					if (!value) {
+						$('#Comment-' + key).addClass('has-error');
+						numberOfErrors++;
+					}
+				});
+
+				if (numberOfErrors > 0) {
+					$('#commentform-errors').toggle(true);
+					event.preventDefault();
+					return;
+				}
+				$('#commentform-errors').toggle(false);
+
+				$('#commentform').attr('action', '/Default.aspx?ID=@Pageview.Page.ID');
+				// $('#Comment.Command").val('create');
+				// 	document.getElementById("Comment.NotifySubject").value = "New comment on '" + document.title + "' (from " + document.getElementById("Comment.Email").value + ")";
+			});
+		});
+	}(jQuery))/*]]>*/</script>
+<!--@SnippetEnd(JavaScriptBottom)-->
+</div>

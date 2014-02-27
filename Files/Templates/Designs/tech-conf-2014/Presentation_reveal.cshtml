@@ -1,0 +1,76 @@
+﻿@inherits Dynamicweb.Rendering.RazorTemplateBase<Dynamicweb.Rendering.RazorTemplateModel<Dynamicweb.Rendering.Template>>
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	<title>@GetValue("Item.Title")</title>
+	<meta name="description" content="" />
+	<meta name="author" content="@GetValue("Item.Speaker")" />
+	<link rel="stylesheet" href="Presentation_reveal/reveal.js/css/reveal.min.css"/>
+	<link rel="stylesheet" href="Presentation_reveal/reveal.js/css/theme/default.css" id="theme"/>
+
+	<link href="//fonts.googleapis.com/css?family=Ubuntu:300italic,300,400italic,400,500italic,500,700italic,700" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+
+	<div class="reveal">
+    <div class="slides">
+			<section class="slide-welcome" data-background="/Files/Templates/Designs/tech-conf-2014/Presentation/assets/images/presentation_welcome.png" data-background-size="100%"></section>
+
+			<section class="slide-title" data-background="/Files/Templates/Designs/tech-conf-2014/Presentation/assets/images/presentation_dynamicweb_front.png" data-background-size="100%">
+				<header>
+					<h1 class="title">@GetString("Item.Title")</h1>
+					@if (!string.IsNullOrWhiteSpace(GetString("Item.Subtitle"))) {
+						<h2 class="subtitle">@GetString("Item.Subtitle")</h2>
+					}
+				</header>
+
+				<div class="content">
+					<div class="speaker">@GetString("Item.Speaker")</div>
+					<div class="date-and-time">@GetString("Item.DateAndTime")</div>
+				</div>
+			</section>
+
+			<!--@Item.RenderList(ItemType: Slide; ListSourceType: SelfPage; ItemFieldsList: Title,Content,Type; ListTemplate: ItemPublisher/List/Slides.cshtml; ListPageSize: 100; ListOrderBy: Sort)-->
+		</div>
+	</div>
+
+	<script src="Presentation_reveal/reveal.js/lib/js/head.min.js"></script>
+	<script src="Presentation_reveal/reveal.js/js/reveal.min.js"></script>
+
+		<script>
+
+			// Full list of configuration options available here:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				 controls: !true,
+				 progress: !true,
+				 history: true,
+				 center: !true,
+
+				 slideNumber: !false,
+				 // previewLinks: !false,
+
+				 theme: 'dynamicweb',
+				 transition: 'default', // default/cube/page/concave/zoom/linear/fade/none
+
+				// Parallax scrolling
+				// parallaxBackgroundImage: 'https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg',
+				// parallaxBackgroundSize: '2100px 900px',
+
+				// Optional libraries used to extend on reveal.js
+				dependencies: [
+					{ src: '/Files/Templates/Designs/tech-conf-2014/Presentation_reveal/reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: '/Files/Templates/Designs/tech-conf-2014/Presentation_reveal/reveal.js/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: '/Files/Templates/Designs/tech-conf-2014/Presentation_reveal/reveal.js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: '/Files/Templates/Designs/tech-conf-2014/Presentation_reveal/reveal.js/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: '/Files/Templates/Designs/tech-conf-2014/Presentation_reveal/reveal.js/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+					{ src: '/Files/Templates/Designs/tech-conf-2014/Presentation_reveal/reveal.js/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+				]
+			});
+
+		</script>
+</body>
+</html>

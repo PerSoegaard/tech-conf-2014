@@ -1,6 +1,13 @@
 @import 'compass';
 @import 'schedule';
+@import 'session';
 @import 'guestbook';
+
+.container {
+	> .row > * {
+		margin-bottom: 1em;
+	}
+}
 
 .speakers {
 	.speaker {
@@ -14,6 +21,10 @@
 }
 
 .speaker {
+	.description {
+		margin: 1em 0;
+	}
+
  	.sessions {
  		header {
 			h1 {
@@ -48,4 +59,26 @@
 
 .buttons {
 	text-align: right;
+}
+
+.paragraph {
+	&.image-left {
+		.paragraph-image {
+			float: left;
+			max-width: (100%) / 3;
+			margin-right: 2%;
+		}
+	}
+
+	&.image-right {
+		.paragraph-image {
+			float: right;
+			max-width: (100%) / 3;
+			margin-left: 2%;
+		}
+	}
+
+	.paragraph-image img {
+		max-width: 100%;
+	}
 }

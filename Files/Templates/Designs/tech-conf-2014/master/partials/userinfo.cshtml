@@ -1,0 +1,18 @@
+<div id="userinfo">
+@if (Pageview.User.UserID > 0)
+{
+<text>Welcome, @Pageview.User.UserName
+<a class="small radius button" href="/Admin/Public/ExtranetLogoff.aspx">[Sign out]</a>
+</text>
+			}
+else
+{
+<form method="post">
+<div>
+<input name="username" value="test" size="3" />
+<input name="password" value="test" size="3" />
+<button type="submit" class="small radius button">Sign in</button>
+</div>
+</form>
+			}
+</div>

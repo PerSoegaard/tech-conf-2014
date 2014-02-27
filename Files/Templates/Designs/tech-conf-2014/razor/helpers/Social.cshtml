@@ -1,0 +1,35 @@
+﻿@functions {
+	/// Hashes an email with MD5.  Suitable for use with Gravatar profile
+	/// image urls
+	public static string HashEmailForGravatar(string email)
+	{
+		// Create a new instance of the MD5CryptoServiceProvider object.
+		var md5Hasher = System.Security.Cryptography.MD5.Create();
+
+		// Convert the input string to a byte array and compute the hash.
+		var data = md5Hasher.ComputeHash(System.Text.Encoding.Default.GetBytes(email));
+
+		// Create a new Stringbuilder to collect the bytes
+		// and create a string.
+		var sBuilder = new System.Text.StringBuilder();
+
+		// Loop through each byte of the hashed data
+		// and format each one as a hexadecimal string.
+		for (int i = 0; i < data.Length; i++)
+		{
+			sBuilder.Append(data[i].ToString("x2"));
+		}
+
+		return sBuilder.ToString();  // Return the hexadecimal string.
+	}
+}
+
+@helper Gravatar(string email, int size = 0, string classNames = "gravatar")
+{
+	var hash = HashEmailForGravatar(email);
+	if (size == 0)
+	{
+		size = 32;
+	}
+	<img class="@classNames" src='http://www.gravatar.com/avatar/@hash?size=@size' width="@size" height="@size" />
+}

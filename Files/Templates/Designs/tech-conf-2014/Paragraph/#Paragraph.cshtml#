@@ -1,16 +1,16 @@
 @inherits Dynamicweb.Rendering.RazorTemplateBase<Dynamicweb.Rendering.RazorTemplateModel<Dynamicweb.Rendering.Template>>
 
 @{
-	var paragraphClassNames = "paragraph";
+	var paragraphClassNames = "clearfix paragraph";
 	var type = GetString("Item.Type");
 	if (!string.IsNullOrWhiteSpace(type))
 	{
 		paragraphClassNames += " " + type;
 	}
 	var imagePosition = GetString("Item.ImagePosition");
-	if (!string.IsNullOrWhiteSpace(imagePosition) || imagePosition != "default")
+	if (!string.IsNullOrWhiteSpace(imagePosition))
 	{
-		paragraphClassNames += " clearfix image-" + imagePosition;
+		paragraphClassNames += " image-" + imagePosition;
 	}
 }
 
@@ -21,11 +21,7 @@
 	if (!string.IsNullOrWhiteSpace(src))
 	{
 		<figure class="paragraph-image">
-			<img src="@src" title="@caption" />
-			@if (!string.IsNullOrWhiteSpace(caption))
-			{
-				<figcaption>@caption</figcaption>
-			}
+			<img class="paragraph-image" src="@src" title="@caption" />
 		</figure>
 	}
 }

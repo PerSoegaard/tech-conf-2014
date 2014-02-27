@@ -1,0 +1,54 @@
+@inherits Dynamicweb.Rendering.RazorTemplateBase<Dynamicweb.Rendering.RazorTemplateModel<Dynamicweb.Rendering.Template>>
+
+<!--@Include(/Files/Templates/Designs/tech-conf-2014/razor/functions.cshtml)-->
+@{
+	var panels = GetLoop("Item.Panels").Where(i => !i.GetBoolean("Item.Panels.Disabled")).ToList();
+
+	if (GetString("Item.Shuffle") == "yes" || (GetString("Item.Shuffle") == "maybe" && new Random().Next(4) == 0))
+	{
+		Shuffle(panels);
+	}
+
+	var panelWrapperClassName = string.Format("col-md-{0}", panels.Count > 0 ? 12 / panels.Count : 12);
+}
+
+<div class="row panel-row">
+	@foreach (var panel in panels)
+	{
+		var type = panel.GetString("Item.Panels.Type");
+		switch (type)
+		{
+			case "featured":
+				type = "primary";
+				break;
+			case "highlight":
+				type = "success";
+				break;
+			default:
+				type = "default";
+				break;
+		}
+
+		<div class="@panelWrapperClassName">
+			<section class="panel panel-@type">
+				<div class="panel-heading">
+					<div class="panel-title">
+						@panel.GetValue("Item.Panels.Title")
+					</div>
+				</div>
+
+				<div class="panel-body">
+
+					<div class="text">@panel.GetValue("Item.Panels.Text")</div>
+				</div>
+
+				@if (!string.IsNullOrWhiteSpace(panel.GetString("Item.Panels.ReadMoreUrl")))
+				{
+					<div class="panel-footer">
+						<a href='@panel.GetValue("Item.Panels.ReadMoreUrl")'>@(string.IsNullOrWhiteSpace(panel.GetString("Item.Panels.ReadMoreText")) ? "Read more" : panel.GetString("Item.Panels.ReadMoreText"))</a>
+					</div>
+				}
+			</section>
+		</div>
+	}
+</div>

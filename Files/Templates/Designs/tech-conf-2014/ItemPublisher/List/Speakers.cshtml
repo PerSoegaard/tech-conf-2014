@@ -1,12 +1,8 @@
 ﻿@inherits Dynamicweb.Rendering.RazorTemplateBase<Dynamicweb.Rendering.RazorTemplateModel<Dynamicweb.Rendering.Template>>
 
 <!--@Include(/Files/Templates/Designs/tech-conf-2014/razor/helpers/Helpers.cshtml)-->
-
 @{
-    var counter = 0;
     var speakers = GetLoop("ItemPublisher:Items.List");
-    var numberOfColumns = 3;
-    var itemClassName = string.Format("col-md-{0}", 12 / numberOfColumns);
 }
 
 @helper Speaker(Dynamicweb.Content.Items.ItemEntry speaker)
@@ -15,27 +11,21 @@
 }
 
 <div class="list-speaker">
-<div class="row">
-    @foreach (var speaker in speakers)
+	<div class="row">
+		@foreach (var speaker in speakers)
     {
-        if (counter > 0 && counter % numberOfColumns == 0)
-        {
-            @:         </div><div class="row">
-        }
-        <div class="@itemClassName">
-            <div class="speaker">
-		        <a href='@speaker.GetValue("ItemPublisher:Item.Url")'>
-                    <div class="image">
+		<div class="col-md-4 col-sm-6">
+			<div class="speaker">
+				<a href='@speaker.GetValue("ItemPublisher:Item.Url")'>
+					<div class="image">
 						@Image(speaker.GetString("ItemPublisher:Item.Image"), 0, 0, "img-circle")
-                    </div>
-                    <div class="name">
-                        @speaker.GetValue("ItemPublisher:Item.Name")
-                    </div>
-                </a>
-            </div>
-        </div>
-
-        counter++;
+					</div>
+					<div class="name">
+						@speaker.GetValue("ItemPublisher:Item.Name")
+					</div>
+				</a>
+			</div>
+		</div>
     }
-</div>
+	</div>
 </div>

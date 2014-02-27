@@ -2,15 +2,48 @@
 
 <!--@MasterPageFile(master/main.cshtml)-->
 <!--@Title(Session)-->
+<!--@Include(/Files/Templates/Designs/tech-conf-2014/razor/helpers/Social.cshtml)-->
 @helper Rating()
 {
 	var thumbsUps = GetInteger("Item.ThumbsUps");
 	var thumbsDowns = GetInteger("Item.ThumbsDowns");
-	if (thumbsDowns > 0 || thumbsUps > 0)
+
+	var ratingMax = 100;
+	var ratingDelta = 1;
+	var rating = thumbsUps + thumbsDowns > 0 ? ratingMax * (double)thumbsUps / (thumbsUps + thumbsDowns) : 0;
+
+	rating = Math.Round(Math.Round(rating / ratingDelta) * ratingDelta);
+
+	if (true || thumbsDowns > 0 || thumbsUps > 0)
 	{
-		<div class="rating">
-			+@thumbsUps / -@thumbsDowns
-		</div>
+		<fieldset class="rating">
+			<legend>Rating</legend>
+			<div class="row">
+				<div class="col-md-6">
+					<div class="progress" title="@thumbsUps / @thumbsDowns">
+						<div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="@rating" aria-valuemin="0" aria-valuemax="@ratingMax" style="width: @(100*rating/ratingMax)%">
+							<span class="sr-only">@rating/@ratingMax</span>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-6">
+					<form class="pull-right" method="post" action="/Files/Templates/Designs/tech-conf-2014/scripts/RateSession.aspx">
+						@*
+							<span class="glyphicon glyphicon-thumbs-up"></span> @thumbsUps
+							<span class="glyphicon glyphicon-thumbs-down"></span> @thumbsDowns
+						*@
+						<input type="hidden" name="sessionId" value='@GetString("Item.Id")' />
+						<input type="hidden" name="return" value="@System.Web.HttpContext.Current.Request.Url.PathAndQuery" />
+
+						<button class="btn btn-success" type="submit" value="+1" name="rating"><span class="glyphicon glyphicon-thumbs-up"></span> Like</button>
+						@if (!GetString("Item.Speaker.Name").StartsWith("Mikkel"))
+						{
+							<button class="btn btn-danger" type="submit" value="-1" name="rating"><span class="glyphicon glyphicon-thumbs-down"></span> Dislike</button>
+						}
+					</form>
+				</div>
+			</div>
+		</fieldset>
 	}
 }
 
@@ -20,23 +53,32 @@
 
 		@if (!string.IsNullOrWhiteSpace(GetString("Item.Subtitle")))
 		{
-			<div class="subtitle">
+			<h2 class="subtitle">
 				@GetString("Item.Subtitle")
-			</div>
+			</h2>
 		}
 	</header>
 
 	<div class="time">
+		<span class="glyphicon glyphicon-time"></span>
 		@GetDate("Item.StartTime").ToString("yyyy-MM-dd HH:mm")
 	</div>
 	@if (!string.IsNullOrWhiteSpace(GetString("Item.Speaker")))
 	{
 		<div class="speaker">
+			<span class="glyphicon glyphicon-user"></span>
 			<a href='@GetValue("Item.Speaker")'>@GetValue("Item.Speaker.Name")</a>
 		</div>
 	}
 
 	<div class="description">@GetValue("Item.Description")</div>
 
-	@Rating()
+	@if (true || DateTime.Now > GetDate("Item.StartTime"))
+	{
+		@Rating()
+
+		<text>
+			<!--@Include(partials/Comments.cshtml)-->
+		</text>
+	}
 </article>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta charset="utf-8"/>
+		<meta name="viewport" content="width=1024"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <title>Presentation</title>
+
+		<meta name="description" content=""/>
+    <meta name="author" content="Mikkel Ricky"/>
+
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans:regular,semibold,italic,italicsemibold|PT+Sans:400,700,400italic,700italic|PT+Serif:400,700,400italic,700italic" rel="stylesheet"/>
+
+@{
+	var stylePath = GetValue("Page.Item.StyleSheet") ?? "stylesheets/presentation.css";
+	stylePath = "stylesheets/presentation.css";
+}
+		<link href="@stylePath" rel="stylesheet"/>
+
+    <link rel="shortcut icon" href="favicon.png"/>
+    <link rel="apple-touch-icon" href="apple-touch-icon.png"/>
+	</head>
+	<body>
+		<article id="impress" class="dwcontent" data-transition-duration="200" data-settings="template:Default.cshtml">
+			<section class="slide-title">
+				<header><h1>Title</h1></header>
+
+				<div class="content">
+					Name<br/>
+					Date
+				</div>
+			</section>
+
+			<section class="slide-default">
+				<header><h1>Agenda</h1></header>
+
+				<div class="content">
+					<ul>
+						<li>Welcome</li>
+						<li>Interesting topic</li>
+						<li>Questions</li>
+					</ul>
+				</div>
+
+			</section>
+			<section class="slide-empty">
+				<header>
+				<h1>Questions?</h1></header>
+			</section>
+		</article>
+
+		<script src="javascripts/lib/impress.js"></script>
+		<script src="javascripts/lib/jquery-1.9.1.min.js"></script>
+		@{ var scriptPath = GetValue("Page.Item.JavaScript") ?? "javascripts/presentation/presentation.js"; }
+		<script src="@scriptPath"></script>
+	</body>
+</html>

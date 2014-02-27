@@ -1,0 +1,44 @@
+﻿@inherits Dynamicweb.Rendering.RazorTemplateBase<Dynamicweb.Rendering.RazorTemplateModel<Dynamicweb.Rendering.Template>>
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=1024" />
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<title>@GetValue("Item.Title")</title>
+	<meta name="description" content="" />
+	<meta name="author" content="Mikkel Ricky" />
+	<link href="//fonts.googleapis.com/css?family=Ubuntu:300italic,300,400italic,400,500italic,500,700italic,700" rel="stylesheet" type="text/css"/>
+		@{
+		var stylePath = "Presentation/assets/stylesheets/presentation.css";
+	}
+	<link href="@stylePath" rel="stylesheet" />
+	<link rel="shortcut icon" href="favicon.png" />
+	<link rel="apple-touch-icon" href="apple-touch-icon.png" />
+</head>
+<body>
+	<article id="impress" data-transition-duration="200">
+		<section class="slide-title">
+			<header>
+				<h1 class="title">@GetString("Item.Title")</h1>
+				@if (!string.IsNullOrWhiteSpace(GetString("Item.Subtitle"))) {
+					<h2 class="subtitle">@GetString("Item.Subtitle")</h2>
+					}
+			</header>
+
+			<div class="content">
+				<div class="speaker">@GetString("Item.Speaker")</div>
+				<div class="date-and-time">@GetString("Item.DateAndTime")</div>
+			</div>
+		</section>
+
+		<!--@Item.RenderList(ItemType: Slide; ListSourceType: SelfPage; ItemFieldsList: Title,Content,Type; ListTemplate: ItemPublisher/List/Slides.cshtml; ListPageSize: 100; ListOrderBy: Sort)-->
+	</article>
+
+	<script src="Presentation/assets/javascripts/impress.js"></script>
+	<script src="Presentation/assets/javascripts/jquery-1.9.1.min.js"></script>
+	@{ var scriptPath = GetValue("Page.Item.JavaScript") ?? "Presentation/assets/javascripts/presentation.js"; }
+	<script src="@scriptPath"></script>
+</body>
+</html>

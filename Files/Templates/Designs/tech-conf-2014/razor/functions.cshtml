@@ -1,14 +1,29 @@
 ﻿@functions {
-    string GetImageUrl(string url, int width = 200, int height = 200)
-    {
-        if (string.IsNullOrWhiteSpace(url))
-        {
-            url = string.Format("http://placehold.it/{0}x{1}", width, height);
-        }
-        if (!url.StartsWith("http://"))
-        {
-            url = string.Format("/Admin/Public/GetImage.ashx?Image={0}&width={1}&height={2}", url, width, height);
-        }
-        return url;
-    }
+	string GetImageUrl(string url, int width = 200, int height = 200)
+	{
+		if (string.IsNullOrWhiteSpace(url))
+		{
+			url = string.Format("http://placehold.it/{0}x{1}", width, height);
+		}
+		if (!url.StartsWith("http://"))
+		{
+			url = string.Format("/Admin/Public/GetImage.ashx?Image={0}&width={1}&height={2}", url, width, height);
+		}
+		return url;
+	}
+
+	// @see http://stackoverflow.com/a/1262619
+	public static void Shuffle<T>(IList<T> list)
+	{
+		Random rng = new Random();
+		int n = list.Count;
+		while (n > 1)
+		{
+			n--;
+			int k = rng.Next(n + 1);
+			T value = list[k];
+			list[k] = list[n];
+			list[n] = value;
+		}
+	}
 }

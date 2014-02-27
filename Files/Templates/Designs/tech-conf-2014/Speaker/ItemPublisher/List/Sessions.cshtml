@@ -17,7 +17,7 @@
 		@foreach (var item in items)
 		{
 			<li class='session level-@item.GetInteger("ItemPublisher:Item.Level")'>
-				<div class="starttime">@item.GetDate("ItemPublisher:Item.StartTime").ToString("yyyy-MM-dd HH:mm")</div>
+				<div class="starttime"><span class="glyphicon glyphicon-time"></span> @item.GetDate("ItemPublisher:Item.StartTime").ToString("yyyy-MM-dd HH:mm")</div>
 				<div class="title"><a href="@item.GetValue("ItemPublisher:Item.Url")">@item.GetValue("ItemPublisher:Item.Title")</a></div>
 			</li>
 		}

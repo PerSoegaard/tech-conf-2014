@@ -1,0 +1,78 @@
+﻿@inherits Dynamicweb.Rendering.RazorTemplateBase<Dynamicweb.Rendering.RazorTemplateModel<Dynamicweb.Rendering.Template>>
+
+@using System.Web;
+
+@{
+	var request = HttpContext.Current.Request;
+
+	var lower = GetInteger("Item.Lower");
+	var upper = GetInteger("Item.Upper");
+	if (lower < 0)
+	{
+		lower = 0;
+	}
+	if (upper <= lower)
+	{
+		upper = lower + 100;
+	}
+
+	if (request.HttpMethod == "GET")
+	{
+		HttpContext.Current.Session["guess_a_number_number_of_guesses"] = 0;
+		HttpContext.Current.Session["guess_a_number_correct_number"] = new Random().Next(lower, upper);
+	}
+
+	var numberOfGuesses = HttpContext.Current.Session["guess_a_number_number_of_guesses"] is int ? (int)HttpContext.Current.Session["guess_a_number_number_of_guesses"] : 0;
+	var correctNumber = HttpContext.Current.Session["guess_a_number_correct_number"] is int ? (int)HttpContext.Current.Session["guess_a_number_correct_number"] : 0;
+	var currentGuess = -1;
+	var hasGuess = false;
+
+	if (request.HttpMethod == "POST")
+	{
+		int.TryParse(request.Form["guess"], out currentGuess);
+		hasGuess = true;
+		HttpContext.Current.Session["guess_a_number_number_of_guesses"] = numberOfGuesses + 1;
+	}
+}
+
+<div class="guess-a-number">
+	<p class="rules">@GetString("Item.Rules").Replace("{{lower}}", lower.ToString()).Replace("{{upper}}", upper.ToString())</p>
+
+	@if (request["cheat"] == "true")
+	{
+		<pre>currentGuess: @currentGuess
+correctNumber: @correctNumber
+numberOfGuesses: @numberOfGuesses
+</pre>
+	}
+
+	@if (hasGuess)
+	{
+		if (currentGuess == correctNumber)
+		{
+			<p class="alert alert-success">Correct! You guessed the number @correctNumber (#guesses: @(numberOfGuesses + 1))</p>
+		}
+		else if (currentGuess < correctNumber)
+		{
+			<p class="alert alert-warning">Your guess @currentGuess is too low</p>
+		}
+		else
+		{
+			<p class="alert alert-warning">Your guess @currentGuess is too high</p>
+		}
+	}
+
+	@if (currentGuess != correctNumber)
+	{
+		<form method="post">
+			<label>Your guess (no. @(numberOfGuesses + 1)) <input type="number" name="guess" placeholder='@(currentGuess < 0 ? "" : currentGuess.ToString())' /></label>
+			<button type="submit">Guess</button>
+		</form>
+	}
+	else
+	{
+		<div>
+			<a class="btn" href="@request.RawUrl">Restart</a>
+		</div>
+	}
+</div>

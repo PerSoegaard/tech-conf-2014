@@ -1,0 +1,18 @@
+@{
+	var items = GetLoop("ItemPublisher:Items.List");
+}
+@functions {
+	string Encode(object value)
+	{
+		return System.Web.HttpUtility.HtmlEncode(value);
+	}
+}
+@foreach (var item in items)
+{
+	<item>
+		@("<link>")@Encode(item.GetValue("ItemPublisher:Item.Url"))@("</link>")
+		<pubDate>@item.GetDate("ItemPublisher:Item.Time").ToString("r")</pubDate>
+		<title>@Encode(item.GetValue("ItemPublisher:Item.Name"))</title>
+		<description>@Encode(item.GetValue("ItemPublisher:Item.Text"))</description>
+	</item>
+}
