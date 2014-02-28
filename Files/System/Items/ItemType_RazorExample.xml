@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-16" standalone="yes"?>
+<items>
+  <item category="Razor" name="Razor example" systemName="RazorExample" description="" icon="" largeIcon="" includeInUrlIndex="False">
+    <fields>
+      <field name="Title" systemName="Title" description="" type="System.String, mscorlib">
+        <editor type="Dynamicweb.Content.Items.Editors.TextEditor, Dynamicweb">
+          <editorConfuguration />
+        </editor>
+      </field>
+      <field name="Time" systemName="Time" description="" type="System.DateTime, mscorlib">
+        <editor type="Dynamicweb.Content.Items.Editors.DateTimeEditor, Dynamicweb">
+          <editorConfuguration />
+        </editor>
+      </field>
+      <field name="Disabled" systemName="Disabled" description="" type="System.Boolean, mscorlib" defaultValueCulture="en-US" defaultValue="False">
+        <editor type="Dynamicweb.Content.Items.Editors.CheckboxEditor, Dynamicweb">
+          <editorConfuguration />
+        </editor>
+      </field>
+      <field name="List" systemName="List" description="" type="System.Collections.Generic.IEnumerable`1[[System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]], mscorlib">
+        <editor type="Dynamicweb.Content.Items.Editors.ItemListEditor, Dynamicweb">
+          <editorConfuguration><Parameters><Parameter addin="Dynamicweb.Content.Items.Editors.ItemListEditor" name="Item type" value="RazorExampleItem" /></Parameters></editorConfuguration>
+        </editor>
+        <options sourceType="Static">
+          <Static>
+            <option name="Name" value="Name" icon="" />
+            <option name="Value" value="Value" icon="" />
+            <option name="Disabled" value="Disabled" icon="" />
+          </Static>
+        </options>
+      </field>
+    </fields>
+    <rules>
+      <rule name="Allow in websites" type="Dynamicweb.Content.Items.Activation.AreaRestrictionRule, Dynamicweb" value="1" />
+      <rule name="Allowed parents" type="Dynamicweb.Content.Items.Activation.ParentRestrictionRule, Dynamicweb" value="RootOfWebsite" />
+      <rule name="Enable item type for" type="Dynamicweb.Content.Items.Activation.StructureRestrictionRule, Dynamicweb" value="Pages" />
+    </rules>
+    <layout>
+      <groups>
+        <group name="General" systemName="General" collapsibleState="None">
+          <fields>
+            <field systemName="Title" />
+            <field systemName="Time" />
+            <field systemName="Disabled" />
+            <field systemName="List" />
+          </fields>
+        </group>
+      </groups>
+    </layout>
+  </item>
+</items>

@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-16" standalone="yes"?>
 <items>
-  <item category="People" name="Speaker" systemName="Speaker" description="" icon="/Admin/Images/Ribbon/Icons/Small/user1.png" largeIcon="/Admin/Images/Ribbon/Icons/user1.png" includeInUrlIndex="False">
+  <item category="program" name="Speaker" systemName="Speaker" description="" icon="/Admin/Images/Ribbon/Icons/Small/user1.png" largeIcon="/Admin/Images/Ribbon/Icons/user1.png" includeInUrlIndex="False">
     <fields>
       <field name="Name" systemName="Name" description="" type="System.String, mscorlib">
         <editor type="Dynamicweb.Content.Items.Editors.TextEditor, Dynamicweb">

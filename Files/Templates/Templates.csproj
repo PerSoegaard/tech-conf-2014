@@ -118,9 +118,6 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
     <Content Include="Designs\tech-conf-2014\razor\helpers\Helpers.cshtml" />
   </ItemGroup>
   <ItemGroup>
@@ -164,6 +161,21 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Designs\tech-conf-2014\ItemPublisher\Edit\Person.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Designs\tech-conf-2014\Page.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Designs\tech-conf-2014\RazorExample.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Designs\tech-conf-2014\Location.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Designs\tech-conf-2014\ItemPublisher\List\Locations.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

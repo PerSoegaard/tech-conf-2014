@@ -1,0 +1,34 @@
+@inherits Dynamicweb.Rendering.RazorTemplateBase<Dynamicweb.Rendering.RazorTemplateModel<Dynamicweb.Rendering.Template>>
+
+<!--@MasterPageFile(master/main.cshtml)-->
+<!--@Title(Razor example)-->
+
+<pre>@string.Join("\n", Values)</pre>
+
+<pre>
+@GetValue("Item.Title")
+@GetDate("Item.Time")
+@GetDate("Item.Time").ToString("dd/MM/yyyy")
+@GetBoolean("Item.Disabled")
+
+@if (GetBoolean("Item.Disabled")) {
+	@: I'm disabled
+} else {
+	@: I'm not disabled
+}
+
+@*
+@foreach (var item in GetLoop("Item.List")) {
+<p>@item.GetValue("Item.List.Name"): @item.GetValue("Item.List.Value")</p>
+}
+
+<hr/>
+	*@
+
+@{
+	var items = GetLoop("Item.List").Where(i => !i.GetBoolean("Item.List.Disabled"));
+}
+@foreach (var item in items) {
+<p>@item.GetValue("Item.List.Name"): @item.GetValue("Item.List.Value")</p>
+}
+</pre>

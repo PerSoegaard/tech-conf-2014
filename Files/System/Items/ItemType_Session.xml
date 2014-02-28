@@ -15,6 +15,14 @@
           <editorConfuguration />
         </editor>
       </field>
+      <field name="Location" systemName="Location" description="" type="System.String, mscorlib">
+        <editor type="Dynamicweb.Content.Items.Editors.DropDownListEditor`1, Dynamicweb">
+          <editorConfuguration />
+        </editor>
+        <options sourceType="Sql">
+          <Sql query="select * from ItemType_Location order by Sort" nameField="Name" valueField="Id" accessDb="" />
+        </options>
+      </field>
       <field name="Start time" systemName="StartTime" description="" type="System.DateTime, mscorlib">
         <editor type="Dynamicweb.Content.Items.Editors.DateTimeEditor, Dynamicweb">
           <editorConfuguration />
@@ -22,6 +30,11 @@
       </field>
       <field name="End time" systemName="EndTime" description="" type="System.DateTime, mscorlib">
         <editor type="Dynamicweb.Content.Items.Editors.DateTimeEditor, Dynamicweb">
+          <editorConfuguration />
+        </editor>
+      </field>
+      <field name="Is break?" systemName="IsBreak" description="" type="System.Boolean, mscorlib" defaultValueCulture="en-US" defaultValue="False">
+        <editor type="Dynamicweb.Content.Items.Editors.CheckboxEditor, Dynamicweb">
           <editorConfuguration />
         </editor>
       </field>
@@ -52,11 +65,6 @@
           <editorConfuguration><Parameters><Parameter addin="Dynamicweb.Content.Items.Editors.RichTextEditor" name="SelectConfgurationId" value="0" /></Parameters></editorConfuguration>
         </editor>
       </field>
-      <field name="Is break?" systemName="IsBreak" description="" type="System.Boolean, mscorlib" defaultValueCulture="en-US" defaultValue="False">
-        <editor type="Dynamicweb.Content.Items.Editors.CheckboxEditor, Dynamicweb">
-          <editorConfuguration />
-        </editor>
-      </field>
       <field name="ThumbsUps" systemName="ThumbsUps" description="" type="System.Int32, mscorlib" defaultValueCulture="en-US" defaultValue="0">
         <editor type="Dynamicweb.Content.Items.Editors.IntegerEditor, Dynamicweb">
           <editorConfuguration />
@@ -78,13 +86,14 @@
           <fields>
             <field systemName="Title" />
             <field systemName="Subtitle" />
+            <field systemName="Location" />
             <field systemName="StartTime" />
             <field systemName="EndTime" />
+            <field systemName="IsBreak" />
             <field systemName="Level" />
             <field systemName="Speaker" />
             <field systemName="Speaker1" />
             <field systemName="Description" />
-            <field systemName="IsBreak" />
           </fields>
         </group>
         <group name="Rating" systemName="Rating" collapsibleState="None">

@@ -737,28 +737,45 @@
   text-align: right;
 }
 
-/* line 66, ../sass/tech-conf-2014.scss */
-.paragraph.image-left .paragraph-image {
-  float: left;
-  max-width: 33.33333%;
-  margin-right: 2%;
+@media (min-width: 768px) {
+  /* line 67, ../sass/tech-conf-2014.scss */
+  .paragraph.image-left .paragraph-image {
+    float: left;
+    max-width: 33.33333%;
+    margin-right: 2%;
+  }
+  /* line 75, ../sass/tech-conf-2014.scss */
+  .paragraph.image-right .paragraph-image {
+    float: right;
+    max-width: 33.33333%;
+    margin-left: 2%;
+  }
 }
-/* line 74, ../sass/tech-conf-2014.scss */
-.paragraph.image-right .paragraph-image {
-  float: right;
-  max-width: 33.33333%;
-  margin-left: 2%;
+@media (max-width: 767px) {
+  /* line 84, ../sass/tech-conf-2014.scss */
+  .paragraph .paragraph-image {
+    margin-bottom: 1em;
+  }
 }
-/* line 81, ../sass/tech-conf-2014.scss */
+/* line 90, ../sass/tech-conf-2014.scss */
 .paragraph .paragraph-image img {
   max-width: 100%;
 }
 
-/* line 87, ../sass/tech-conf-2014.scss */
+/* line 97, ../sass/tech-conf-2014.scss */
 .people .header {
   font-weight: bold;
 }
-/* line 91, ../sass/tech-conf-2014.scss */
+/* line 101, ../sass/tech-conf-2014.scss */
 .people .person:nth-child(2n) {
   background: #eee;
+}
+
+/* line 107, ../sass/tech-conf-2014.scss */
+.list-location .location {
+  margin-bottom: 1em;
+}
+/* line 110, ../sass/tech-conf-2014.scss */
+.list-location .location h1 {
+  margin-top: 0;
 }

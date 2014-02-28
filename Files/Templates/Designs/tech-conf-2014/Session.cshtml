@@ -47,6 +47,40 @@
 	}
 }
 
+@functions {
+	Dynamicweb.Content.Page GetPageForItem(Dynamicweb.Content.Items.Item item)
+	{
+		if (item != null)
+		{
+			// Warning: you should not query the database from your template!
+			var sql = string.Format("select * from Page where PageItemType = '{0}' and PageItemId = '{1}'", item.SystemName, item.Id);
+			return Dynamicweb.Content.Page.GetPageBySql(sql);
+		}
+		return null;
+	}
+}
+
+@helper Location()
+{
+	var id = GetString("Item.Location");
+	var item = Dynamicweb.Content.Items.Item.GetItemById("Location", id);
+	var page = GetPageForItem(item);
+	if (item != null)
+	{
+		<div class="location">
+			<span class="glyphicon glyphicon-map-marker"></span>
+			@if (page != null)
+			{
+				<a href="/Default.aspx?ID=@page.ID">@item["Name"]</a>
+			}
+			else
+			{
+				@item["Name"]
+			}
+		</div>
+	}
+}
+
 <article class='session level-@GetInteger("Item.Level")'>
 	<header>
 		<h1>@GetValue("Item.Title")</h1>
@@ -63,6 +97,9 @@
 		<span class="glyphicon glyphicon-time"></span>
 		@GetDate("Item.StartTime").ToString("yyyy-MM-dd HH:mm")
 	</div>
+
+	@Location()
+
 	@if (!string.IsNullOrWhiteSpace(GetString("Item.Speaker")))
 	{
 		<div class="speaker">

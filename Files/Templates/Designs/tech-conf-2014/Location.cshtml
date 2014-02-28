@@ -1,0 +1,12 @@
+<!--@MasterPageFile(master/main.cshtml)-->
+<!--@Title(Location)-->
+
+<div class="location jumbotron">
+	<h1>@GetValue("Item.Name")</h1>
+
+	<figure>
+		<img src='/../@GetValue("Item.Image")'/>
+	</figure>
+
+	<p>@GetValue("Item.Description")</p>
+</div>
