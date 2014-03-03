@@ -1,28 +1,23 @@
-﻿<link rel="stylesheet" href="/Files/Templates/ItemPublisher/ItemPublisher.css" />
-
 <div class="items">
-    <div class="item-details">
-        <div class="item-details-fields-outer">
-            <!--@LoopStart(ItemPublisher:Item.Fields)-->
-            <div class="item-details-field">
-                <div class="item-details-field-name"><!--@ItemPublisher:Item.Field.Name--></div>
-                <div class="item-details-field-value">
-                    <!--@If Defined(ItemPublisher:Item.Field.Value)-->
-                    <!--@ItemPublisher:Item.Field.Value-->
-                    <!--@EndIf(ItemPublisher:Item.Field.Value)-->
+	<div class="item-details">
 
-                    <!--@If Not Defined(ItemPublisher:Item.Field.Value)-->
-                    <span class="item-details-field-novalue">(<!--@Translate(ItemPublisher:Details.NotSpecified, "not specified")-->)</span>
-                    <!--@EndIf(ItemPublisher:Item.Field.Value)-->
-                </div>
-            </div>
-            <!--@LoopEnd(ItemPublisher:Item.Fields)-->
-        </div>
+		<!--@LoopStart(ItemPublisher:Item.Groups)-->
+		<fieldset class="form-horizontal">
+			<legend><!--@ItemPublisher:Item.Group.Name--></legend>
 
-        <div class="item-details-controls">
-            <input type="button" value='<!--@Translate(ItemPublisher:Details.GoBack, "Go back")-->' onclick="javascript:window.history.go(-1);" />
-        </div>
+			<!--@LoopStart(ItemPublisher:Item.Group.Fields)-->
+			<div class="form-group">
+				<span class="col-sm-2 control-label"><!--@ItemPublisher:Item.Field.Name--></span>
+				<div class="col-sm-10">
+					<span class="form-control"><!--@If Defined(ItemPublisher:Item.Field.Value)--><!--@ItemPublisher:Item.Field.Value--><!--@Else-->(<!--@Translate(ItemPublisher:Details.NotSpecified, "not specified")-->)<!--@EndIf(ItemPublisher:Item.Field.Value)--></span>
+				</div>
+			</div>
+				<!--@LoopEnd(ItemPublisher:Item.Group.Fields)-->
+		</fieldset>
+		<!--@LoopEnd(ItemPublisher:Item.Groups)-->
 
-        <div class="items-clear"></div>
-    </div>
+		<div>
+			<a class="btn btn-default" href="/Default.aspx?ID=<!--@Global:Page.ID-->"><span class="glyphicon glyphicon-chevron-left"></span> <!--@Translate(ItemPublisher:Details.GoBack, "Back to list")--></a>
+		</div>
+	</div>
 </div>

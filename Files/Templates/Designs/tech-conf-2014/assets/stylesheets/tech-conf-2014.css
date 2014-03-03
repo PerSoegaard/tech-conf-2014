@@ -779,3 +779,58 @@
 .list-location .location h1 {
   margin-top: 0;
 }
+
+@media (min-width: 768px) {
+  /* line 119, ../sass/tech-conf-2014.scss */
+  .items .table-responsive {
+    width: 100%;
+    margin-bottom: 15px;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    border: 1px solid #dddddd;
+    -ms-overflow-style: -ms-autohiding-scrollbar;
+    -webkit-overflow-scrolling: touch;
+  }
+  /* line 128, ../sass/tech-conf-2014.scss */
+  .items .table-responsive > .table {
+    margin-bottom: 0;
+  }
+  /* line 136, ../sass/tech-conf-2014.scss */
+  .items .table-responsive > .table > thead > tr > th,
+  .items .table-responsive > .table > tbody > tr > th,
+  .items .table-responsive > .table > tfoot > tr > th,
+  .items .table-responsive > .table > thead > tr > td,
+  .items .table-responsive > .table > tbody > tr > td,
+  .items .table-responsive > .table > tfoot > tr > td {
+    white-space: nowrap;
+  }
+  /* line 139, ../sass/tech-conf-2014.scss */
+  .items .table-responsive > .table-bordered {
+    border: 0;
+  }
+  /* line 147, ../sass/tech-conf-2014.scss */
+  .items .table-responsive > .table-bordered > thead > tr > th:first-child,
+  .items .table-responsive > .table-bordered > tbody > tr > th:first-child,
+  .items .table-responsive > .table-bordered > tfoot > tr > th:first-child,
+  .items .table-responsive > .table-bordered > thead > tr > td:first-child,
+  .items .table-responsive > .table-bordered > tbody > tr > td:first-child,
+  .items .table-responsive > .table-bordered > tfoot > tr > td:first-child {
+    border-left: 0;
+  }
+  /* line 155, ../sass/tech-conf-2014.scss */
+  .items .table-responsive > .table-bordered > thead > tr > th:last-child,
+  .items .table-responsive > .table-bordered > tbody > tr > th:last-child,
+  .items .table-responsive > .table-bordered > tfoot > tr > th:last-child,
+  .items .table-responsive > .table-bordered > thead > tr > td:last-child,
+  .items .table-responsive > .table-bordered > tbody > tr > td:last-child,
+  .items .table-responsive > .table-bordered > tfoot > tr > td:last-child {
+    border-right: 0;
+  }
+  /* line 161, ../sass/tech-conf-2014.scss */
+  .items .table-responsive > .table-bordered > tbody > tr:last-child > th,
+  .items .table-responsive > .table-bordered > tfoot > tr:last-child > th,
+  .items .table-responsive > .table-bordered > tbody > tr:last-child > td,
+  .items .table-responsive > .table-bordered > tfoot > tr:last-child > td {
+    border-bottom: 0;
+  }
+}
