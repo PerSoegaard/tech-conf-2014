@@ -1,12 +1,11 @@
 ﻿<WebsiteItemLayouts>
   <PageItemLayouts>
+    <ItemLayout systemname="CommunityMeeting" template="CommunityMeeting.cshtml" />
     <ItemLayout systemname="Course" template="Course.cshtml" />
     <ItemLayout systemname="CourseEvent" template="CourseEvent.cshtml" />
     <ItemLayout systemname="Guestbook" template="Guestbook.cshtml" />
     <ItemLayout systemname="Location" template="Location.cshtml" />
     <ItemLayout systemname="Page" template="Page.cshtml" />
-    <ItemLayout systemname="People" template="People.cshtml" />
-    <ItemLayout systemname="Person" template="Person.cshtml" />
     <ItemLayout systemname="Presentation" template="Presentation.cshtml" />
     <ItemLayout systemname="Program" template="Program.cshtml" />
     <ItemLayout systemname="RazorExample" template="" />

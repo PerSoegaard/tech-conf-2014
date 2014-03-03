@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-16" standalone="yes"?>
+<items>
+  <item category="Community" name="Community meeting signup" systemName="CommunityMeetingSignup" description="" icon="" largeIcon="" includeInUrlIndex="False">
+    <fields>
+      <field name="Name" systemName="Name" description="" type="System.String, mscorlib">
+        <editor type="Dynamicweb.Content.Items.Editors.InputHTML5Editor, Dynamicweb">
+          <editorConfuguration><Parameters><Parameter addin="Dynamicweb.Content.Items.Editors.InputHTML5Editor" name="Type" value="email" /><Parameter addin="Dynamicweb.Content.Items.Editors.InputHTML5Editor" name="Pattern" value="" /><Parameter addin="Dynamicweb.Content.Items.Editors.InputHTML5Editor" name="Placeholder" value="" /><Parameter addin="Dynamicweb.Content.Items.Editors.InputHTML5Editor" name="Size" value="" /><Parameter addin="Dynamicweb.Content.Items.Editors.InputHTML5Editor" name="Min" value="" /><Parameter addin="Dynamicweb.Content.Items.Editors.InputHTML5Editor" name="Max" value="" /><Parameter addin="Dynamicweb.Content.Items.Editors.InputHTML5Editor" name="Step" value="" /><Parameter addin="Dynamicweb.Content.Items.Editors.InputHTML5Editor" name="Autocomplete" value="False" /><Parameter addin="Dynamicweb.Content.Items.Editors.InputHTML5Editor" name="Required" value="True" /></Parameters></editorConfuguration>
+        </editor>
+        <validators>
+          <validator type="Dynamicweb.Content.Items.Editors.RequiredValidator, Dynamicweb" errorMessage="" />
+        </validators>
+      </field>
+      <field name="Email" systemName="Email" description="" type="System.String, mscorlib">
+        <editor type="Dynamicweb.Content.Items.Editors.InputHTML5Editor, Dynamicweb">
+          <editorConfuguration><Parameters><Parameter addin="Dynamicweb.Content.Items.Editors.InputHTML5Editor" name="Type" value="email" /><Parameter addin="Dynamicweb.Content.Items.Editors.InputHTML5Editor" name="Pattern" value="" /><Parameter addin="Dynamicweb.Content.Items.Editors.InputHTML5Editor" name="Placeholder" value="" /><Parameter addin="Dynamicweb.Content.Items.Editors.InputHTML5Editor" name="Size" value="" /><Parameter addin="Dynamicweb.Content.Items.Editors.InputHTML5Editor" name="Min" value="" /><Parameter addin="Dynamicweb.Content.Items.Editors.InputHTML5Editor" name="Max" value="" /><Parameter addin="Dynamicweb.Content.Items.Editors.InputHTML5Editor" name="Step" value="" /><Parameter addin="Dynamicweb.Content.Items.Editors.InputHTML5Editor" name="Autocomplete" value="False" /><Parameter addin="Dynamicweb.Content.Items.Editors.InputHTML5Editor" name="Required" value="True" /></Parameters></editorConfuguration>
+        </editor>
+        <validators>
+          <validator type="Dynamicweb.Content.Items.Editors.RequiredValidator, Dynamicweb" errorMessage="" />
+        </validators>
+      </field>
+      <field name="Company" systemName="Company" description="" type="System.String, mscorlib">
+        <editor type="Dynamicweb.Content.Items.Editors.InputHTML5Editor, Dynamicweb">
+          <editorConfuguration><Parameters><Parameter addin="Dynamicweb.Content.Items.Editors.InputHTML5Editor" name="Type" value="email" /><Parameter addin="Dynamicweb.Content.Items.Editors.InputHTML5Editor" name="Pattern" value="" /><Parameter addin="Dynamicweb.Content.Items.Editors.InputHTML5Editor" name="Placeholder" value="" /><Parameter addin="Dynamicweb.Content.Items.Editors.InputHTML5Editor" name="Size" value="" /><Parameter addin="Dynamicweb.Content.Items.Editors.InputHTML5Editor" name="Min" value="" /><Parameter addin="Dynamicweb.Content.Items.Editors.InputHTML5Editor" name="Max" value="" /><Parameter addin="Dynamicweb.Content.Items.Editors.InputHTML5Editor" name="Step" value="" /><Parameter addin="Dynamicweb.Content.Items.Editors.InputHTML5Editor" name="Autocomplete" value="False" /><Parameter addin="Dynamicweb.Content.Items.Editors.InputHTML5Editor" name="Required" value="True" /></Parameters></editorConfuguration>
+        </editor>
+        <validators>
+          <validator type="Dynamicweb.Content.Items.Editors.RequiredValidator, Dynamicweb" errorMessage="" />
+        </validators>
+      </field>
+      <field name="Community meeting" systemName="CommunityMeeting" description="" type="System.String, mscorlib">
+        <editor type="Dynamicweb.Content.Items.Editors.DropDownListEditor`1, Dynamicweb">
+          <editorConfuguration />
+        </editor>
+        <validators>
+          <validator type="Dynamicweb.Content.Items.Editors.RequiredValidator, Dynamicweb" errorMessage="" />
+        </validators>
+        <options sourceType="Sql">
+          <Sql query="select * from ItemType_CommunityMeeting order by Title" nameField="Title" valueField="Id" accessDb="" />
+        </options>
+      </field>
+    </fields>
+    <rules>
+      <rule name="Allow in websites" type="Dynamicweb.Content.Items.Activation.AreaRestrictionRule, Dynamicweb" value="*" />
+      <rule name="Enable item type for" type="Dynamicweb.Content.Items.Activation.StructureRestrictionRule, Dynamicweb" value="Paragraphs" />
+    </rules>
+    <layout>
+      <groups>
+        <group name="General" systemName="General" collapsibleState="None">
+          <fields>
+            <field systemName="Name" />
+            <field systemName="Email" />
+            <field systemName="Company" />
+            <field systemName="CommunityMeeting" />
+          </fields>
+        </group>
+      </groups>
+    </layout>
+  </item>
+</items>

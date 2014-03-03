@@ -1,0 +1,46 @@
+@inherits Dynamicweb.Rendering.RazorTemplateBase<Dynamicweb.Rendering.RazorTemplateModel<Dynamicweb.Rendering.Template>>
+
+<!--@MasterPageFile(master/main.cshtml)-->
+<!--@Title(Community meeting)-->
+@{
+	//var module = new Dynamicweb.Modules.UserManagement.Frontend().GetType();
+	var type = typeof(Dynamicweb.ContentModule);
+
+	var method = type.GetMethod("CreateModuleInstance", System.Reflection.BindingFlags.Static|System.Reflection.BindingFlags.NonPublic);
+	var module = (Dynamicweb.ContentModule)method.Invoke(null, new string[] {"ItemPublisher"});
+	//module.Properties
+}
+
+<div class="community-meeting">
+	<h1>@GetValue("Item.Title")</h1>
+
+	<p class="description">@GetValue("Item.Description")</p>
+
+	<fieldset>
+		<legend>Sign up</legend>
+		<!--@Global:Paragraph.Content(4041)-->
+	</fieldset>
+</div>
+
+@if (false) {
+	<div class="dwcontent" id="signups" data-settings="template:CommunityMeetingSignup.cshtml"></div>
+}
+
+@if (Dynamicweb.ExecutingContext.IsAdminLoggedIn()) {
+	<h2>Signups</h2>
+
+	<div class="table-responsive">
+		<table class="table table-striped">
+			<thead>
+				<tr>
+					<th>Name</th>
+					<th>Email</th>
+					<th>Company</th>
+				</tr>
+			</thead>
+			<tbody>
+				@GetValue("DwContent(signups)")
+			</tbody>
+		</table>
+	</div>
+}

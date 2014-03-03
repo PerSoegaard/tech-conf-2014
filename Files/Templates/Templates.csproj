@@ -177,6 +177,18 @@
   <ItemGroup>
     <Content Include="Designs\tech-conf-2014\ItemPublisher\List\Locations.cshtml" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="Designs\tech-conf-2014\CommunityMeeting.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Designs\tech-conf-2014\CommunityMeeting\ItemCreator\Create\Create.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Designs\tech-conf-2014\CommunityMeeting\Paragraph\Default.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Designs\tech-conf-2014\CommunityMeeting\Paragraph\CommunityMeetingSignup.cshtml" />
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
