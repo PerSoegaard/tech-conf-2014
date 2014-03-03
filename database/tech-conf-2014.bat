@@ -4,8 +4,7 @@ set generator=c:\Projects\SQLGenerator\SQLGenerator\bin\Release\SQLGenerator.exe
 
 set dbHost=localhost
 set dbName=tech-conf-2014
-set tableNames=Area Page Paragraph ItemType_*
-set tableNames=Page Paragraph ItemTypeId ItemType_*
+set tableNames=Area Page Paragraph ItemTypeId ItemType_*
 
 REM echo drop %dbHost% %dbName% %tableNames%
 REM %generator% drop %dbHost% %dbName% %tableNames% > %dbName%.drop.sql
