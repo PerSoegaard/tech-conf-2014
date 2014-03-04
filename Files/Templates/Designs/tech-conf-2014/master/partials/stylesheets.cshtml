@@ -1,23 +1,16 @@
 @*
 Warning: Hack ahead!
 
-The layout template parser prefixes all href attribute values with the path to the layout. We don't want this and therefore we generate data-href attributes and change them using JavaScript
+The layout template parser prefixes all href attribute values with the path to the layout. We don't want this and therefore we use some ugle hacks!
 *@
 
 @if (!string.IsNullOrWhiteSpace(GetString("Item.Page.ThemeCSSUrl")) || !string.IsNullOrWhiteSpace(GetString("Item.Area.ThemeCSSUrl")))
 {
-	<link rel="stylesheet" href="" data-href='@(!string.IsNullOrWhiteSpace(GetString("Item.Page.ThemeCSSUrl")) ? GetString("Item.Page.ThemeCSSUrl") : GetString("Item.Area.ThemeCSSUrl"))'/>
+	@("<"+"link")@: rel="stylesheet" href='@(!string.IsNullOrWhiteSpace(GetString("Item.Page.ThemeCSSUrl")) ? GetString("Item.Page.ThemeCSSUrl") : GetString("Item.Area.ThemeCSSUrl"))' @("/>")
 }
 
 @if (!string.IsNullOrWhiteSpace(GetString("Item.Page.CustomCSSUrl")) || !string.IsNullOrWhiteSpace(GetString("Item.Area.CustomCSSUrl")))
 {
-	<link rel="stylesheet" href="" data-href='@(!string.IsNullOrWhiteSpace(GetString("Item.Page.CustomCSSUrl")) ? GetString("Item.Page.CustomCSSUrl") : GetString("Item.Area.CustomCSSUrl"))'/>
+	@("<"+"link")@: rel="stylesheet" href='@(!string.IsNullOrWhiteSpace(GetString("Item.Page.CustomCSSUrl")) ? GetString("Item.Page.CustomCSSUrl") : GetString("Item.Area.CustomCSSUrl"))' @("/>")
 }
-
-<script>(function() {
-var i, link, links = document.querySelectorAll('link[data-href]');
-for (i = 0; link = links[i]; i++) {
-		 link.setAttribute('href', link.getAttribute('data-href'));
-}
-}())</script>
 <!--@Snippet(StyleSheet)-->
