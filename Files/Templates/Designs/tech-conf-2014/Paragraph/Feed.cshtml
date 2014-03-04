@@ -1,53 +1,65 @@
 <section class="feed panel panel-default">
-	<header class="panel-heading">
-		<h1 class="panel-title">	@GetValue("Item.Title")</h1>
-	</header>
+    <header class="panel-heading">
+        <h1 class="panel-title">	@GetValue("Item.Title")</h1>
+    </header>
 
-	<div class="panel-body" id='feed-@GetValue("ParagraphID")'>
-		Loading feed from <a href='@GetValue("Item.Url")'>@GetValue("Item.Url")</a> …
-	</div>
+    <div class="panel-body" id='feed-@GetValue("ParagraphID")'>
+        Loading feed from <a href='@GetValue("Item.Url")'>@GetValue("Item.Url")</a> …
+    </div>
 </section>
 
 <!--@SnippetStart(JavaScriptBottom)-->
 <script>
-	(function ($, undefined) {
-		var id = '#feed-@GetValue("ParagraphID")',
+    (function ($, undefined) {
+        var pad = function(value, length, paddingCharacter) {
+            length || (length = 2);
+            paddingCharacter || (paddingCharacter = '0');
+            var s = value.toString();
+            while (s.length < length) {
+                s = paddingCharacter+s;
+            }
+            return s;
+        }, 
+        formatDate = function(d) {
+            return d.getFullYear()+'-'+pad(d.getMonth())+'-'+pad(d.getDate())+' '+pad(d.getHours())+':'+pad(d.getMinutes())+':'+pad(d.getSeconds());
+        },
+        id = '#feed-@GetValue("ParagraphID")',
 			url = '@GetValue("Item.Url")',
 			limit = @GetInteger("Item.Limit"),
 			firstLoad = true,
 			loadItems = function () {
-				var $el = $(id);
-				$.ajax({
-					url: url+(url.indexOf('?') < 0 ? '?' : '&')+'take='+limit
-				})
+			    var $el = $(id);
+			    $.ajax({
+			        url: url+(url.indexOf('?') < 0 ? '?' : '&')+'take='+limit
+			    })
 					.done(function (data, status, xhr) {
-						var content, i, item, items = $('item', data.documentElement);
-						$el.empty();
+					    var content, i, item, items = $('item', data.documentElement);
+					    $el.empty();
 
-						content = $('<ol class="feed-items"></ol>');
+					    content = $('<ol class="feed-items"></ol>');
 
-						for (i = 0; item = items[i]; i++) {
-							var date = new Date($(item).find('pubDate').text()),
+					    for (i = 0; item = items[i]; i++) {
+					        var date = new Date($(item).find('pubDate').text()),
 								title = $(item).find('title').text(),
 								description = $(item).find('description').text();
-							$('<li></li>', { 'class': 'item' })
-								.append('<span class="pubDate">'+date+'</span>')
-								.append('<span class="title">'+title+'</span>')
-								.append('<span class="description">'+description+'</span>')
+					        $('<li></li>', { 'class': 'item' })
+								.append(' <span class="pubDate">'+formatDate(date)+'</span>')
+								.append(' <span class="title">'+title+'</span>')
+								.append(' <span class="description">'+description+'</span>')
 								.appendTo(content);
-						}
+					    }
 
-						$el.append(content);
+					    $el.append(content);
 					})
 				.fail(function () {
-					if (firstLoad) {
-						$el.html('Error loading feed from ' + url);
-					}
-					firstLoad = false;
+				    if (firstLoad) {
+				        $el.html('Error loading feed from ' + url);
+				    }
+				    firstLoad = false;
 				});
 			};
 
-		$(window).load(loadItems);
-	}(jQuery))
+        $(window).load(loadItems);
+    }(jQuery))
 </script>
 <!--@SnippetEnd(JavaScriptBottom)-->

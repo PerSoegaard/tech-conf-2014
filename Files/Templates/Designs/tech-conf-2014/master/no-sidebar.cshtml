@@ -17,10 +17,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css" />
 	@GetValue("Stylesheets")
-	@if (!string.IsNullOrWhiteSpace(GetString("Item.Area.CustomCSSUrl")))
-	{
-		<link rel="stylesheet" href='@GetValue("Item.Area.CustomCSSUrl")' />
-	}
+	<!--@Include(partials/stylesheets.cshtml)-->
 	<!--@Snippet(StyleSheet)-->
 	@GetValue("Javascripts")
 	<!--@Snippet(JavaScript)-->

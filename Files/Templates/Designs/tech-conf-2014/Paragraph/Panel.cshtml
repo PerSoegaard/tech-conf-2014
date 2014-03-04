@@ -35,10 +35,11 @@
 			<div class="text">@GetValue("Item.Text")</div>
 		</div>
 
-		@if (!string.IsNullOrWhiteSpace(GetString("Item.DetailsUrl"))) { 
-		<div class="panel-footer">
-			<a href='@GetValue("Item.DetailsUrl")'>@GetValue("Item.DetailsText", "Read more")</a>
-		</div>
-		}
+        @if (!string.IsNullOrWhiteSpace(GetString("Item.ReadMoreUrl")))
+        {
+            <div class="panel-footer">
+                <a href='@GetValue("Item.ReadMoreUrl")'>@(string.IsNullOrWhiteSpace(GetString("Item.ReadMoreText")) ? "Read more" : GetString("Item.ReadMoreText"))</a>
+            </div>
+        }
 	</section>
 </div>

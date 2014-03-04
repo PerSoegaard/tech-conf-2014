@@ -14,6 +14,7 @@
     <ItemLayout systemname="Speaker" template="Speaker.cshtml" />
   </PageItemLayouts>
   <ParagraphItemLayouts>
+    <ItemLayout systemname="CommunityMeetingSignup" template="" />
     <ItemLayout systemname="Feed" template="Feed.cshtml" />
     <ItemLayout systemname="GuessANumber" template="GuessANumber.cshtml" />
     <ItemLayout systemname="GuestbookEntry" template="Guestbook_entry.cshtml" />
