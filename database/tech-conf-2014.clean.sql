@@ -28,8 +28,6 @@ truncate table ItemType_PanelGroup
 go
 truncate table ItemType_Paragraph
 go
-truncate table ItemType_Person
-go
 truncate table ItemType_Presentation
 go
 truncate table ItemType_Program
