@@ -1,0 +1,160 @@
+﻿<!--@MasterPageFile(master.html)-->
+<!--@Title(News page)-->
+<!--@Description(News page with left navigation and content area 3+9)-->
+
+<div class="pg-opt pin">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-6">
+				<h2><!--@Global:Page.Top.Name--></h2>
+			</div>
+			<div class="col-md-6">
+				<ul class="breadcrumb dwnavigation" id="breadcrumb" data-settings="template:breadcrumb.xslt">
+					<li><a href="#">Home</a></li>
+					<li><a href="#">Library</a></li>
+					<li class="active">Data</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>
+
+<section class="slice bg-3 animate-hover-slide">
+	<div class="w-section inverse blog-grid">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-3">
+					<div class="widget">
+						<h3 class="section-title"><!--@Global:Page.Top.Name--></h3>
+						<ul class="categories dwnavigation" id="leftnavigation" data-settings="startlevel:1;endlevel:2;parentid:0;template:LICleanEcom.xslt;startfrom:3403"></ul>
+					</div>
+				</div>
+
+				<div class="col-md-9">
+					<div class="row">
+						<div class="col-md-12">
+							<div class="w-box blog-post">
+								<div class="figure">
+									<!--@If Defined(Item.GeneralImage)-->
+									<div style="background-image: url(/Admin/Public/GetImage.ashx?image=<!--@Item.GeneralImage-->&width=940&compression=90);height:350px;background-position:bottom center">
+									</div>
+									<!--@EndIf-->
+									<h2><!--@Item.Heading--></h2>
+									<ul class="meta-list">
+										<li>
+											<span>Written by</span>
+											<span class="bold"><!--@Item.GeneralAuthor--></span>
+										</li>
+										<li>
+											<span>-</span>
+											<a href="#"><!--@Item.Date.LongDate--></a>
+										</li>
+									</ul>
+									<p><!--@Item.Text--></p>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-12 dwcont_ent" id="modulecontent" title="For modules">
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-12">
+							<div class="w-box blog-post">
+
+								<div class="comments-wr">
+									<h3 class="section-title">Comments</h3>
+
+									<div class="comment">
+										<img src="images/prv/team-img-3.jpg" alt="">
+										<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut non libero magna. Sed et quam lacus. Fusce condimentum eleifend enim a feugiat.</p>
+									</div>
+									<div class="comment">
+										<img src="images/prv/team-img-2.jpg" alt="">
+										<p>
+											It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English.
+											<br><br>
+											Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut non libero magna. Sed et quam lacus.
+										</p>
+
+										<span class="clearfix"></span>
+
+										<div class="comment">
+											<img src="images/prv/team-img-1.jpg" alt="">
+											<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut non libero magna. Sed et quam lacus. Fusce condimentum eleifend enim a feugiat.</p>
+										</div>
+
+										<div class="comment">
+											<img src="images/prv/team-img-3.jpg" alt="">
+											<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut non libero magna. Sed et quam lacus. Fusce condimentum eleifend enim a feugiat.</p>
+										</div>
+									</div>
+									<div class="comment">
+										<img src="images/prv/team-img-1.jpg" alt="">
+										<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut non libero magna. Sed et quam lacus. Fusce condimentum eleifend enim a feugiat.</p>
+									</div>
+
+								</div>
+							</div>
+
+							<div class="w-box w-box-inverse inner">
+								<div class="comment-form">
+									<h3 class="section-title">Add you comment</h3>
+
+									<form class="form-light">
+										<div class="row">
+											<div class="col-md-6">
+												<div class="form-group">
+													<label>First name</label>
+													<input type="text" class="form-control" placeholder="">
+												</div>
+											</div>
+											<div class="col-md-6">
+												<div class="form-group">
+													<label>Last name</label>
+													<input type="text" class="form-control" placeholder="">
+												</div>
+											</div>
+										</div>
+										<div class="row">
+											<div class="col-md-6">
+												<div class="form-group">
+													<label>Email</label>
+													<input type="email" class="form-control" placeholder="">
+												</div>
+											</div>
+											<div class="col-md-6">
+												<div class="form-group">
+													<label>Website</label>
+													<input type="text" class="form-control" placeholder="">
+												</div>
+											</div>
+										</div>
+										<div class="row">
+											<div class="col-md-12">
+												<div class="form-group">
+													<label>Comment</label>
+													<textarea class="form-control" placeholder="Write your comment here" style="min-height:90px;"></textarea>
+												</div>
+											</div>
+										</div>
+										<div class="row">
+											<div class="col-md-6">
+												<a data-toggle="modal" href="#commentModal" class="btn btn-three pull-left" title="Click to open modal form example"><i class="fa fa-comment-o"></i> Open modal</a>
+											</div>
+											<div class="col-md-6">
+												<a data-toggle="modal" href="#" class="btn btn-two pull-right" title=""><i class="fa fa-comment-o"></i> Send comment</a>
+											</div>
+										</div>
+									</form>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+		</div>
+	</div>
+</section>

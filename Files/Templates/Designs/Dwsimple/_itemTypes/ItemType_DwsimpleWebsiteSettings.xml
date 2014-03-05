@@ -1,0 +1,148 @@
+﻿<?xml version="1.0" encoding="utf-16" standalone="yes"?>
+<items>
+  <item category="Settings" name="Dwsimple website settings" systemName="DwsimpleWebsiteSettings" description="" icon="/Admin/Images/Ribbon/Icons/Small/preferences.png" largeIcon="/Admin/Images/Ribbon/Icons/preferences.png" includeInUrlIndex="False">
+    <fields>
+      <field name="Logo" systemName="GeneralLogo" description="" type="System.String, mscorlib">
+        <editor type="Dynamicweb.Content.Items.Editors.FileEditor, Dynamicweb">
+          <editorConfuguration><Parameters><Parameter addin="Dynamicweb.Content.Items.Editors.FileEditor" name="Base directory" value="/Templates/Designs/Dwsimple/images" /><Parameter addin="Dynamicweb.Content.Items.Editors.FileEditor" name="Extensions" value="" /></Parameters></editorConfuguration>
+        </editor>
+      </field>
+      <field name="Mode" systemName="LayoutMode" description="Fluid is full-width, boxed shows the background on the sides of the page" type="System.String, mscorlib" defaultValueCulture="en-US" defaultValue="boxed">
+        <editor type="Dynamicweb.Content.Items.Editors.RadioButtonListEditor`1, Dynamicweb">
+          <editorConfuguration><Parameters><Parameter addin="Dynamicweb.Content.Items.Editors.RadioButtonListEditor`1[[System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]" name="LabelPosition" value="3" /><Parameter addin="Dynamicweb.Content.Items.Editors.RadioButtonListEditor`1[[System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]" name="IconPosition" value="4" /><Parameter addin="Dynamicweb.Content.Items.Editors.RadioButtonListEditor`1[[System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]" name="IconMaxWidth" value="0" /><Parameter addin="Dynamicweb.Content.Items.Editors.RadioButtonListEditor`1[[System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]" name="IconMaxHeight" value="0" /></Parameters></editorConfuguration>
+        </editor>
+        <options sourceType="Static">
+          <Static>
+            <option name="Boxed" value="boxed" icon="Templates/Designs/Dwsimple/images/settings/layout-boxed.png" />
+            <option name="Fluid" value="fluid" icon="Templates/Designs/Dwsimple/images/settings/layout-fluid.png" />
+          </Static>
+        </options>
+      </field>
+      <field name="Style" systemName="LayoutStyle" description="Dark or light style" type="System.String, mscorlib" defaultValueCulture="en-US" defaultValue="lw">
+        <editor type="Dynamicweb.Content.Items.Editors.RadioButtonListEditor`1, Dynamicweb">
+          <editorConfuguration><Parameters><Parameter addin="Dynamicweb.Content.Items.Editors.RadioButtonListEditor`1[[System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]" name="LabelPosition" value="3" /><Parameter addin="Dynamicweb.Content.Items.Editors.RadioButtonListEditor`1[[System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]" name="IconPosition" value="10" /><Parameter addin="Dynamicweb.Content.Items.Editors.RadioButtonListEditor`1[[System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]" name="IconMaxWidth" value="0" /><Parameter addin="Dynamicweb.Content.Items.Editors.RadioButtonListEditor`1[[System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]" name="IconMaxHeight" value="0" /></Parameters></editorConfuguration>
+        </editor>
+        <options sourceType="Static">
+          <Static>
+            <option name="Light" value="lw" icon="Templates/Designs/Dwsimple/images/settings/style-light.png" />
+            <option name="Dark" value="ld" icon="Templates/Designs/Dwsimple/images/settings/style-dark.png" />
+          </Static>
+        </options>
+      </field>
+      <field name="Image" systemName="BackgroundImage" description="Only have an effect on boxed layout" type="System.String, mscorlib">
+        <editor type="Dynamicweb.Content.Items.Editors.RadioButtonListEditor`1, Dynamicweb">
+          <editorConfuguration><Parameters><Parameter addin="Dynamicweb.Content.Items.Editors.RadioButtonListEditor`1[[System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]" name="LabelPosition" value="3" /><Parameter addin="Dynamicweb.Content.Items.Editors.RadioButtonListEditor`1[[System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]" name="IconPosition" value="4" /><Parameter addin="Dynamicweb.Content.Items.Editors.RadioButtonListEditor`1[[System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]" name="IconMaxWidth" value="0" /><Parameter addin="Dynamicweb.Content.Items.Editors.RadioButtonListEditor`1[[System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]" name="IconMaxHeight" value="0" /></Parameters></editorConfuguration>
+        </editor>
+        <options sourceType="Static">
+          <Static>
+            <option name="Dark" value="body-bg-1" icon="Templates/Designs/Dwsimple/images/settings/body-bg-1.png" />
+            <option name="Magnetite" value="body-bg-2" icon="Templates/Designs/Dwsimple/images/settings/body-bg-2.png" />
+            <option name="Grey" value="body-bg-3" icon="Templates/Designs/Dwsimple/images/settings/body-bg-3.png" />
+            <option name="Light grey" value="body-bg-4" icon="Templates/Designs/Dwsimple/images/settings/body-bg-4.png" />
+            <option name="Building" value="body-bg-5" icon="Templates/Designs/Dwsimple/images/settings/body-bg-5.jpg" />
+            <option name="Bridge" value="body-bg-6" icon="Templates/Designs/Dwsimple/images/settings/body-bg-6.jpg" />
+            <option name="None" value="None" icon="" />
+          </Static>
+        </options>
+      </field>
+      <field name="Custom image" systemName="BackgroundCustomImage" description="" type="System.String, mscorlib">
+        <editor type="Dynamicweb.Content.Items.Editors.FileEditor, Dynamicweb">
+          <editorConfuguration><Parameters><Parameter addin="Dynamicweb.Content.Items.Editors.FileEditor" name="Base directory" value="/Billeder" /><Parameter addin="Dynamicweb.Content.Items.Editors.FileEditor" name="Extensions" value="" /></Parameters></editorConfuguration>
+        </editor>
+      </field>
+      <field name="Color" systemName="BackgroundColor" description="" type="Dynamicweb.Rendering.Colors.Color, Dynamicweb" defaultValueCulture="en-US" defaultValue="#FFFFFF">
+        <editor type="Dynamicweb.Content.Items.Editors.ColorEditor, Dynamicweb">
+          <editorConfuguration />
+        </editor>
+      </field>
+      <field name="Sticky" systemName="NavigationSticky" description="Specifies if the navigation will stick to the top when the page is scrolled" type="System.Boolean, mscorlib" defaultValueCulture="en-US" defaultValue="False">
+        <editor type="Dynamicweb.Content.Items.Editors.CheckboxEditor, Dynamicweb">
+          <editorConfuguration />
+        </editor>
+      </field>
+      <field name="Position" systemName="NavigationPosition" description="Specifies if the navigation items should be left or right aligned" type="System.String, mscorlib" defaultValueCulture="en-US" defaultValue="navbar-right">
+        <editor type="Dynamicweb.Content.Items.Editors.RadioButtonListEditor`1, Dynamicweb">
+          <editorConfuguration><Parameters><Parameter addin="Dynamicweb.Content.Items.Editors.RadioButtonListEditor`1[[System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]" name="LabelPosition" value="3" /><Parameter addin="Dynamicweb.Content.Items.Editors.RadioButtonListEditor`1[[System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]" name="IconPosition" value="4" /><Parameter addin="Dynamicweb.Content.Items.Editors.RadioButtonListEditor`1[[System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]" name="IconMaxWidth" value="0" /><Parameter addin="Dynamicweb.Content.Items.Editors.RadioButtonListEditor`1[[System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]" name="IconMaxHeight" value="0" /></Parameters></editorConfuguration>
+        </editor>
+        <options sourceType="Static">
+          <Static>
+            <option name="Right" value="navbar-right" icon="Templates/Designs/Dwsimple/images/settings/navigation-position-right.png" />
+            <option name="Left" value="navbar-left" icon="Templates/Designs/Dwsimple/images/settings/navigation-position-left.png" />
+          </Static>
+        </options>
+      </field>
+      <field name="Style" systemName="NavigationStyle" description="Specifies if the dropdown menus are light or dark" type="System.String, mscorlib">
+        <editor type="Dynamicweb.Content.Items.Editors.RadioButtonListEditor`1, Dynamicweb">
+          <editorConfuguration><Parameters><Parameter addin="Dynamicweb.Content.Items.Editors.RadioButtonListEditor`1[[System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]" name="LabelPosition" value="3" /><Parameter addin="Dynamicweb.Content.Items.Editors.RadioButtonListEditor`1[[System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]" name="IconPosition" value="4" /><Parameter addin="Dynamicweb.Content.Items.Editors.RadioButtonListEditor`1[[System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]" name="IconMaxWidth" value="0" /><Parameter addin="Dynamicweb.Content.Items.Editors.RadioButtonListEditor`1[[System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]" name="IconMaxHeight" value="0" /></Parameters></editorConfuguration>
+        </editor>
+        <options sourceType="Static">
+          <Static>
+            <option name="Light" value="navbar-normal" icon="Templates/Designs/Dwsimple/images/settings/navigation-style-light.png" />
+            <option name="Dark" value="navbar-contrasted" icon="Templates/Designs/Dwsimple/images/settings/navigation-style-dark.png" />
+          </Static>
+        </options>
+      </field>
+      <field name="Company name" systemName="FooterCompanyName" description="" type="System.String, mscorlib">
+        <editor type="Dynamicweb.Content.Items.Editors.TextEditor, Dynamicweb">
+          <editorConfuguration />
+        </editor>
+      </field>
+      <field name="Address" systemName="FooterAddress" description="Address shown in the footer" type="System.String, mscorlib">
+        <editor type="Dynamicweb.Content.Items.Editors.LongTextEditor, Dynamicweb">
+          <editorConfuguration><Parameters><Parameter addin="Dynamicweb.Content.Items.Editors.LongTextEditor" name="Rows" value="3" /><Parameter addin="Dynamicweb.Content.Items.Editors.LongTextEditor" name="Cols" value="" /></Parameters></editorConfuguration>
+        </editor>
+      </field>
+      <field name="Phone" systemName="FooterPhone" description="Phone number shown in the footer" type="System.String, mscorlib">
+        <editor type="Dynamicweb.Content.Items.Editors.TextEditor, Dynamicweb">
+          <editorConfuguration />
+        </editor>
+      </field>
+      <field name="Email" systemName="FooterEmail" description="Contact email shown in the footer" type="System.String, mscorlib">
+        <editor type="Dynamicweb.Content.Items.Editors.InputHTML5Editor, Dynamicweb">
+          <editorConfuguration><Parameters><Parameter addin="Dynamicweb.Content.Items.Editors.InputHTML5Editor" name="Type" value="email" /><Parameter addin="Dynamicweb.Content.Items.Editors.InputHTML5Editor" name="Pattern" value="" /><Parameter addin="Dynamicweb.Content.Items.Editors.InputHTML5Editor" name="Placeholder" value="Specify email" /><Parameter addin="Dynamicweb.Content.Items.Editors.InputHTML5Editor" name="Size" value="" /><Parameter addin="Dynamicweb.Content.Items.Editors.InputHTML5Editor" name="Min" value="" /><Parameter addin="Dynamicweb.Content.Items.Editors.InputHTML5Editor" name="Max" value="" /><Parameter addin="Dynamicweb.Content.Items.Editors.InputHTML5Editor" name="Step" value="" /><Parameter addin="Dynamicweb.Content.Items.Editors.InputHTML5Editor" name="Autocomplete" value="False" /><Parameter addin="Dynamicweb.Content.Items.Editors.InputHTML5Editor" name="Required" value="False" /></Parameters></editorConfuguration>
+        </editor>
+      </field>
+    </fields>
+    <rules>
+      <rule name="Allow in websites" type="Dynamicweb.Content.Items.Activation.AreaRestrictionRule, Dynamicweb" value="*" />
+      <rule name="Enable item type for" type="Dynamicweb.Content.Items.Activation.StructureRestrictionRule, Dynamicweb" value="Websites" />
+    </rules>
+    <layout>
+      <groups>
+        <group name="General" systemName="General" collapsibleState="None">
+          <fields>
+            <field systemName="GeneralLogo" />
+          </fields>
+        </group>
+        <group name="Layout" systemName="Layout" collapsibleState="None">
+          <fields>
+            <field systemName="LayoutMode" />
+            <field systemName="LayoutStyle" />
+          </fields>
+        </group>
+        <group name="Background" systemName="Background" collapsibleState="None">
+          <fields>
+            <field systemName="BackgroundImage" />
+            <field systemName="BackgroundCustomImage" />
+            <field systemName="BackgroundColor" />
+          </fields>
+        </group>
+        <group name="Navigation" systemName="Navigation" collapsibleState="None">
+          <fields>
+            <field systemName="NavigationSticky" />
+            <field systemName="NavigationPosition" />
+            <field systemName="NavigationStyle" />
+          </fields>
+        </group>
+        <group name="Footer" systemName="Footer" collapsibleState="None">
+          <fields>
+            <field systemName="FooterCompanyName" />
+            <field systemName="FooterAddress" />
+            <field systemName="FooterPhone" />
+            <field systemName="FooterEmail" />
+          </fields>
+        </group>
+      </groups>
+    </layout>
+  </item>
+</items>

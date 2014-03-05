@@ -1,0 +1,61 @@
+﻿<!--@MasterPageFile(master.html)-->
+<!--@Title(Left navigation page)-->
+<!--@Description(Page with left navigation and content area 3+9)-->
+
+<div class="pg-opt pin">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-6">
+				<h2><!--@Global:Page.Top.Name--></h2>
+			</div>
+			<div class="col-md-6">
+				<ul class="breadcrumb dwnavigation" id="breadcrumb" data-settings="template:breadcrumb.xslt">
+					<li><a href="#">Home</a></li>
+					<li><a href="#">Library</a></li>
+					<li class="active">Data</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>
+
+<section class="slice bg-3">
+	<div class="w-section inverse shop">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-3">
+					<div class="widget">
+						<h3 class="section-title"><!--@Global:Page.Top.Name--></h3>
+						<ul class="categories dwnavigation" id="leftnavigation" data-settings="startlevel:1;endlevel:3;template:LeftNavigationEcom.xslt;">
+							<li><a href="#">Laptops <i> (20)</i></a></li>
+							<li><a href="#">Tablets <i> (8)</i></a></li>
+							<li><a href="#">Phones <i> (16)</i></a></li>
+							<li><a href="#">Mice <i> (82)</i></a></li>
+							<li><a href="#">Cameras <i> (33)</i></a></li>
+						</ul>
+					</div>
+
+					<!--@If Defined(DwAreaCartPageID)-->
+					<h3 class="section-title">Search products</h3>
+					<div class="widget widget-highlight">
+						<form method="get" action="<!--@Global:Pageview.Url.Raw-->">
+							<input type="hidden" name="ID" value="3403" />
+							<div class="input-group">
+								<input type="text" class="form-control" name="eComQuery" tabindex="1">
+								<span class="input-group-btn">
+									<button class="btn btn-primary" type="submit">Search!</button>
+								</span>
+							</div>
+						</form>
+
+					</div>
+					
+					<!--@EndIf-->
+				</div>
+				<div class="col-md-9 dwcontent" id="maincontent" title="Content area">
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+<!--DwTemplateTags-->

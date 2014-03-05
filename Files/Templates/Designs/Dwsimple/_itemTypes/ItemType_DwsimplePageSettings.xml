@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-16" standalone="yes"?>
+<items>
+  <item category="Settings" name="Dwsimple page settings" systemName="DwsimplePageSettings" description="Settings for pages in the dwsimple design" icon="/Admin/Images/Ribbon/Icons/Small/DocumentProperties.png" largeIcon="/Admin/Images/Ribbon/Icons/DocumentProperties.png" includeInUrlIndex="False">
+    <fields>
+      <field name="Show breadcrumb" systemName="LayoutShowBreadcrumb" description="" type="System.Boolean, mscorlib" defaultValueCulture="en-US" defaultValue="True">
+        <editor type="Dynamicweb.Content.Items.Editors.CheckboxEditor, Dynamicweb">
+          <editorConfuguration />
+        </editor>
+      </field>
+    </fields>
+    <rules>
+      <rule name="Allow in websites" type="Dynamicweb.Content.Items.Activation.AreaRestrictionRule, Dynamicweb" value="3029" />
+      <rule name="Enable item type for" type="Dynamicweb.Content.Items.Activation.StructureRestrictionRule, Dynamicweb" value="Websites" />
+    </rules>
+    <layout>
+      <groups>
+        <group name="Layout" systemName="Layout" collapsibleState="None">
+          <fields>
+            <field systemName="LayoutShowBreadcrumb" />
+          </fields>
+        </group>
+      </groups>
+    </layout>
+  </item>
+</items>

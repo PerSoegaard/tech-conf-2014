@@ -1,0 +1,26 @@
+<div class="w-section inverse blog-grid">
+	<div class="row">
+		<div class="col-md-12">
+			<div class="w-box blog-post">
+				<div class="figure">
+					<!--@If Defined(ItemPublisher:Item.GeneralImage)-->
+					<div style="background-image: url(/Admin/Public/GetImage.ashx?image=<!--@ItemPublisher:Item.GeneralImage-->&width=940&compression=90); height: 350px; background-position: bottom center">
+					</div>
+					<!--@EndIf-->
+					<h2><!--@ItemPublisher:Item.Heading--></h2>
+					<ul class="meta-list">
+						<li>
+							<span>Written by</span>
+							<span class="bold"><!--@ItemPublisher:Item.GeneralAuthor--></span>
+						</li>
+						<li>
+							<span>-</span>
+							<a href="#"><!--@ItemPublisher:Item.Date.LongDate--></a>
+						</li>
+					</ul>
+					<p><!--@ItemPublisher:Item.Text--></p>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

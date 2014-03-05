@@ -1,0 +1,35 @@
+<div class="w-section inverse work work-no-space g4">
+	<div class="container">
+		<div class="row">
+			<div id="ulSorList">
+				
+				<!--@LoopStart(Item.Images.ListOfFiles)-->
+				
+				<div class="mix category_1" data-cat="1">
+					<div class="w-box inverse">
+						<div class="figure" style="width:293px;height: 195px; background-image: url(/Admin/Public/GetImage.ashx?image=<!--@ItemPublisher:Item.GeneralImage-->&width=273&compression=90); background-position: bottom center; ">
+							<img alt="" src="/Admin/Public/GetImage.ashx?image=<!--@Item.Images-->/<!--@Item.Images.FileName-->&width=293&compression=90" class="img-responsive">
+							<div class="figcaption bg-2"></div>
+							<div class="figcaption-btn">
+								<a href="<!--@Item.Images-->/GalleryImages/1024x1024/<!--@Item.Images.FileName-->" class="btn btn-xs btn-one theater"><i class="fa fa-plus-circle"></i> Zoom</a>
+							</div>
+							<div class="figcaption-txt">
+								<p class="title">
+									
+								</p>
+								<p class="subtitle">
+									
+								</p>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!--@LoopEnd(Item.Images.ListOfFiles)-->
+
+				<div class="gap"></div>
+			</div>
+
+		</div>
+		
+	</div>
+</div>

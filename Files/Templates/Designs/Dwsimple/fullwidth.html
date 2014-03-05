@@ -1,0 +1,29 @@
+﻿<!--@MasterPageFile(master.html)-->
+<!--@Title(Full width page)-->
+<!--@Description(Use this page for full width pages with no left navigation.)-->
+
+<!--@If(Item.Page.LayoutShowBreadcrumb="True")-->
+<div class="pg-opt pin">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-6">
+				<h2><!--@Global:Page.Top.Name--></h2>
+			</div>
+			<div class="col-md-6">
+				<ul class="breadcrumb dwnavigation" id="breadcrumb" data-settings="template:breadcrumb.xslt">
+					<li><a href="#">Home</a></li>
+					<li><a href="#">Library</a></li>
+					<li class="active">Data</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>
+<!--@EndIf-->
+
+<section class="slice bg-3 animate-hover-slide">
+	<div class="w-section inverse shop">
+		<div class="container dwcontent" id="maincontent" title="Content area">
+		</div>
+	</div>
+</section>

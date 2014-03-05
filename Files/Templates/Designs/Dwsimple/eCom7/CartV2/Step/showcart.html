@@ -1,0 +1,93 @@
+<form name="ordersubmit" id="ordersubmit" method="post">
+	<!--@If Not Defined(Ecom:Order.IsEmpty)-->
+	<div class="row">
+		<div class="col-md-12">
+			<table class="table table-cart table-responsive">
+				<tbody>
+					<tr>
+						<th></th>
+						<th>Product name</th>
+						<th>Price</th>
+						<th class="text-center">Quantity</th>
+						<th></th>
+						<th class="text-right">Total</th>
+					</tr>
+					<!--@LoopStart(OrderLines)-->
+					<tr>
+						<td><img src="/Admin/Public/GetImage.ashx?width=50&image=<!--@Ecom:Product.ImageLarge.Clean-->&Compression=99" class="img-center" alt=""></td>
+						<td>
+							<a href="<!--@Ecom:Order:OrderLine.ProductLink-->">
+								<!--@Ecom:Order:OrderLine.ProductName-->
+								<!--@If Defined(Ecom:Order:OrderLine.ProductVariantText)-->
+								(<!--@Ecom:Order:OrderLine.ProductVariantText-->)
+								<!--@EndIf(Ecom:Order:OrderLine.ProductVariantText)-->
+							</a>
+						</td>
+						<td><!--@Ecom:Order:OrderLine.UnitPrice--></td>
+						<td class="text-center">
+							<!--@Ecom:Order:OrderLine.Quantity-->
+							<!--
+							<input type="number" name="cant" value="Ecom:Order:OrderLine.Quantity" style="width:60px; text-align:center; margin-right:5px; height:34px;">
+							-->
+						</td>
+						<td class="text-center">
+							<!--@If Defined(Ecom:Order:OrderLine.IsProduct)-->
+							<a href="<!--@Ecom:Order:OrderLine.IncrementLink-->" title=""><i class="fa fa-plus"></i></a>&nbsp;
+							<a href="<!--@Ecom:Order:OrderLine.DecrementLink-->" title=""><i class="fa fa-minus"></i></a>&nbsp;
+							<a href="<!--@Ecom:Order:OrderLine.DeleteLink-->" title=""><i class="fa fa-times"></i></a>
+							<!--@EndIf(Ecom:Order:OrderLine.IsProduct)-->
+						</td>
+						<td class="text-right"><!--@Ecom:Order:OrderLine.TotalPrice--></td>
+					</tr>
+					<!--@LoopStart(BOMItems)-->
+					<tr>
+						<td></td>
+						<td><small>&nbsp;&nbsp;&nbsp;<!--@Ecom:Order:OrderLine.ProductName--></small></td>
+						<td><small><!--@Ecom:Order:OrderLine.UnitPrice--></small></td>
+						<td class="text-center"><small><!--@Ecom:Order:OrderLine.Quantity--></small></td>
+						<td></td>
+						<td class="text-right"><small><!--@Ecom:Order:OrderLine.TotalPrice--></small></td>
+					</tr>
+					<!--@LoopEnd(BOMItems)-->
+					<!--@LoopEnd(OrderLines)-->
+					<tr>
+						<td></td>
+						<td></td>
+						<td colspan="3"><i class="fa fa-credit-card"></i> <!--@Ecom:Order.PaymentMethod--></td>
+						<td class="text-right"><!--@Ecom:Order.PaymentFee--></td>
+					</tr>
+					<tr>
+						<td></td>
+						<td></td>
+						<td colspan="3"><i class="fa fa-truck"></i> <!--@Ecom:Order.ShippingMethod--></td>
+						<td class="text-right"><!--@Ecom:Order.ShippingFee--></td>
+					</tr>
+					<tr>
+						<td></td>
+						<td></td>
+						<td colspan="3"><strong>Total</strong></td>
+						<td class="text-right"><strong><!--@Ecom:Order.OrderLines.Total.PriceWithVAT--></strong></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-4">
+			<div class="input-group" style="margin-bottom:20px;">
+				<input type="text" class="form-control" placeholder="Enter coupon code">
+				<span class="input-group-btn">
+					<button class="btn btn-two" type="button">Apply code</button>
+				</span>
+			</div>
+		</div>
+		<div class="col-md-8">
+			<button type="submit" class="btn btn-two pull-right">Proceed to checkout</button>
+			<button type="submit" class="btn btn-three pull-right" style="margin-right:10px;">Update cart</button>
+		</div>
+	</div>
+	<!--@EndIf-->
+	<!--@If Defined(Ecom:Order.IsEmpty)-->
+	Cart is empty...
+	<!--@EndIf-->
+</form>
