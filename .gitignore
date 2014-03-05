@@ -20,7 +20,7 @@ bin/
 packages/
 packages.config
 *.suo
-*.user
+*.user*
 
 _samples/
 
